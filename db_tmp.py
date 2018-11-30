@@ -1,5 +1,5 @@
 import json
-import mysql.connector
+import pymysql
 
 with open('config/config.json') as json_data_file:
     config = json.load(json_data_file)
@@ -7,35 +7,29 @@ with open('config/config.json') as json_data_file:
 
 class DbTmp:
     @staticmethod
-    def insert_tmp(distance, sentence_a, sentence_b):
+    def insert(distance, sentence_a, sentence_b):
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            query = u"INSERT INTO tmp " \
-                    u"(distance, sentence_a, sentence_b, created_at) " \
-                    u"VALUES ({0}, '{1}', '{2}', now())" \
-                    .format(distance, sentence_a, sentence_b)
-            cursor.execute(query)
-            db.commit()
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"INSERT INTO `tmp` (distance, sentence_a, sentence_b, created_at) VALUES (%s, %s, %s, now());"
 
-            if cursor.lastrowid:
-                return cursor.lastrowid
-
-        except Exception as e:
-            print(e)
+                cursor.execute(q, (distance, sentence_a, sentence_b))
+                db.commit()
+        except Exception as ex:
+            print(ex)
         finally:
-            cursor.close()
             db.close()
 
     @staticmethod
     def delete_all():
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            cursor.execute(u"DELETE FROM tmp")
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"DELETE FROM `tmp`;"
+                cursor.execute(q)
+
             db.commit()
-        except Exception as e:
-            print(e)
+        except Exception as ex:
+            print(ex)
         finally:
-            cursor.close()
             db.close()

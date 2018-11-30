@@ -3,7 +3,7 @@
 import requests
 import json
 
-headers = {"Authorization": "Bearer 0f0f023e00b7b889130f8fedc17bad30690651aa"}
+headers = { u"Authorization": u"Bearer 0f0f023e00b7b889130f8fedc17bad30690651aa"}
 
 
 class GitReposExtractor:

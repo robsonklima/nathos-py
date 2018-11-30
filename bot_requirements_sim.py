@@ -64,7 +64,7 @@ def execute():
                 distance = model.wmdistance(sentence_to_compare, sentence)
 
                 if distance < 1 and distance > 0:
-                    DbTmp.insert_tmp(distance, orig_sentence_to_compare, orig_sentence)
+                    DbTmp.insert(distance, orig_sentence_to_compare, orig_sentence)
 
     except Exception as ex:
         print(ex)

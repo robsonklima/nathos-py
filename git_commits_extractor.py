@@ -3,7 +3,7 @@
 import requests
 import json
 
-headers = { "Authorization": "Bearer 0f0f023e00b7b889130f8fedc17bad30690651aa" }
+headers = { u"Authorization": u"Bearer 0f0f023e00b7b889130f8fedc17bad30690651aa" }
 
 
 class GitCommitsExtractor:
@@ -20,7 +20,7 @@ class GitCommitsExtractor:
                 response = requests.get(response.links['next']['url'], headers=headers)
                 commits.extend(response.json())
 
-            print("Extracted repos from {0}, {1} commits extracted".format(owner, len(commits)))
+            print(u"Extracted repos from {0}, {1} commits extracted".format(owner, len(commits)))
             return commits
         except Exception as ex:
             print(ex)

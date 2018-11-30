@@ -8,7 +8,6 @@ with open('config/config.json') as json_data_file:
 class DbRepo:
     @staticmethod
     def insert(name, full_name, owner, stargazers_count, language, description, area):
-
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
