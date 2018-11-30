@@ -1,5 +1,5 @@
 import json
-import mysql.connector
+import pymysql
 
 with open('config/config.json') as json_data_file:
     config = json.load(json_data_file)
@@ -7,72 +7,89 @@ with open('config/config.json') as json_data_file:
 
 class DbProject:
     @staticmethod
-    def get_all_projects():
+    def insert(name, description):
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            cursor.execute(u"SELECT * FROM projects ORDER BY project_id DESC")
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"INSERT INTO `projects` (`name`, `description`) " \
+                    u"VALUES (%s, %s)"
+                cursor.execute(q, (name, description))
 
-            return cursor.fetchall()
-        except Exception as e:
-            print(e)
+            db.commit()
+        except Exception as ex:
+            print(ex)
         finally:
-            cursor.close()
             db.close()
 
     @staticmethod
-    def get_projects_by_category(category):
+    def get_all():
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            cursor.execute(u"SELECT 	 p.*"
-                           u"FROM		 projects p"
-                           u"INNER JOIN	 categories c ON p.project_id = c.project_id"
-                           u"WHERE		 c.title = '{0}';".format(category))
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor(pymysql.cursors.DictCursor) as cursor:
+                sql = u"SELECT * FROM `projects` " \
+                      u"ORDER BY `project_id` DESC"
+                cursor.execute(sql)
 
             return cursor.fetchall()
-        except Exception as e:
-            print(e)
+        except Exception as ex:
+            print(ex)
         finally:
-            cursor.close()
             db.close()
 
     @staticmethod
-    def get_unclassified_projects():
+    def get_by_category(category):
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            cursor.execute(u"SELECT p.* FROM projects p LEFT JOIN categories c "
-                           u"ON p.project_id = c.project_id WHERE c.category_id IS NULL;")
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor(pymysql.cursors.DictCursor) as cursor:
+                q = u"SELECT 	 p.*" \
+                    u" FROM		 projects p" \
+                    u" INNER JOIN	 categories c ON p.project_id = c.project_id" \
+                    u" WHERE		 c.title = %s;"
 
+                cursor.execute(q, category)
             return cursor.fetchall()
-        except Exception as e:
-            print(e)
+        except Exception as ex:
+            print(ex)
         finally:
-            cursor.close()
+            db.close()
+
+    @staticmethod
+    def get_unclassified():
+        try:
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor(pymysql.cursors.DictCursor) as cursor:
+                q = u"SELECT p.* FROM projects p LEFT JOIN categories c " \
+                    u"ON p.project_id = c.project_id WHERE c.category_id IS NULL;"
+
+                cursor.execute(q)
+            return cursor.fetchall()
+        except Exception as ex:
+            print(ex)
+        finally:
+            db.close()
+
+    @staticmethod
+    def delete_by_id(project_id):
+        try:
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"DELETE FROM `projects` WHERE project_id = %s;"
+                cursor.execute(q, (project_id))
+
+            db.commit()
+        except Exception as ex:
+            print(ex)
+        finally:
             db.close()
 
     @staticmethod
     def update(name, description, language, project_id):
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-
-            q = u"UPDATE projects SET"
-
-            if name:
-                q += u" name = '{}',".format(name)
-            if description:
-                q += u" description = '{}',".format(description)
-            if language:
-                q += u" language = '{}'".format(language)
-
-            q += u" WHERE project_id = {};".format(project_id)
-
-            cursor.execute(q)
-            db.commit()
-        except Exception as e:
-            print(e)
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"UPDATE `projects` SET `name` = %s, `description` = %s, `language` = %s " \
+                    u"WHERE `project_id` = %s"
+                cursor.execute(q, (name, description, language, project_id))
+                db.commit()
         finally:
-            cursor.close()
             db.close()

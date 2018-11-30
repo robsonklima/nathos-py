@@ -7,19 +7,19 @@ import gapi_translate
 def execute():
     try:
         # Translate Projects
-        projects = DbProject.get_all_projects()
+        projects = DbProject.get_all()
 
         for project in projects:
-            if project[3] != "en":
-                translated_name = gapi_translate.translate(project[1])
-                translated_description = gapi_translate.translate(project[2])
-                DbProject.update(translated_name, project[2], "en", project[0])
+            if project['language'] != "en":
+                translated_name = gapi_translate.translate(project['name'])
+                translated_description = gapi_translate.translate(project['description'])
+                DbProject.update(translated_name, translated_description, "en", project['project_id'])
 
         # Classify / Categorize Projects
-        projects = DbProject.get_unclassified_projects()
+        projects = DbProject.get_unclassified()
 
         for project in projects:
-            categories = gapi_classify.classify_text(project[2])
+            categories = gapi_classify.classify_text(project['description'])
 
             if categories:
                 for category in categories:
@@ -27,6 +27,6 @@ def execute():
 
                     for cat in category_split:
                         if cat:
-                            DbCategory.insert_category(project[0], cat.strip(), category['confidence'])
+                            DbCategory.insert_category(project['project_id'], cat.strip(), category['confidence'])
     except Exception as ex:
         print(ex)
