@@ -12,7 +12,7 @@ def execute():
         DbRepo.delete_all_repos()
 
         # Get All Categories
-        categories = DbCategory.get_all_categories()
+        categories = DbCategory.get_all()
 
         for category in categories:
             repos = GitReposExtractor.extract_all_by_topic(category[2], "")

@@ -1,5 +1,5 @@
 import json
-import mysql.connector
+import pymysql
 
 with open('config/config.json') as json_data_file:
     config = json.load(json_data_file)
@@ -7,61 +7,73 @@ with open('config/config.json') as json_data_file:
 
 class DbCategory:
     @staticmethod
-    def get_all_categories():
+    def insert(project_id, title, confidence):
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            cursor.execute(u"SELECT * FROM categories")
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"INSERT INTO `categories` (`project_id`, `title`, `confidence`) " \
+                    u"VALUES (%s, %s, %s)"
+                cursor.execute(q, (project_id, title, confidence))
 
-            return cursor.fetchall()
-        except Exception as e:
-            print(e)
-        finally:
-            cursor.close()
-            db.close()
-
-    @staticmethod
-    def get_categories_by_project(project_id):
-        try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            cursor.execute(u"SELECT * FROM categories WHERE project_id = {}".format(project_id))
-
-            return cursor.fetchall()
-        except Exception as e:
-            print(e)
-        finally:
-            cursor.close()
-            db.close()
-
-    @staticmethod
-    def delete_all_categories():
-        try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            cursor.execute(u"DELETE FROM categories")
             db.commit()
-        except Exception as e:
-            print(e)
+        except Exception as ex:
+            print(ex)
         finally:
-            cursor.close()
             db.close()
 
     @staticmethod
-    def insert_category(project_id, title, confidence):
+    def get_all():
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            query = u"INSERT INTO categories (project_id, title, confidence)  " \
-                    u"VALUES ({}, '{}', {})".format(project_id, title, confidence)
-            cursor.execute(query)
-            db.commit()
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor(pymysql.cursors.DictCursor) as cursor:
+                q = u"SELECT * FROM `categories`;"
 
-            if cursor.lastrowid:
-                return cursor.lastrowid
-
-        except Exception as e:
-            print(e)
+                cursor.execute(q)
+            return cursor.fetchall()
+        except Exception as ex:
+            print(ex)
         finally:
-            cursor.close()
             db.close()
+
+    @staticmethod
+    def get_by_project_id(project_id):
+        try:
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor(pymysql.cursors.DictCursor) as cursor:
+                q = u"SELECT * FROM `categories` WHERE `project_id` = %s;"
+
+                cursor.execute(q, project_id)
+            return cursor.fetchall()
+        except Exception as ex:
+            print(ex)
+        finally:
+            db.close()
+
+    @staticmethod
+    def delete_by_id(category_id):
+        try:
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"DELETE FROM `categories` WHERE `category_id` = %s;"
+                cursor.execute(q, (category_id))
+
+            db.commit()
+        except Exception as ex:
+            print(ex)
+        finally:
+            db.close()
+
+    @staticmethod
+    def delete_all():
+        try:
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"DELETE FROM `categories`;"
+                cursor.execute(q)
+
+            db.commit()
+        except Exception as ex:
+            print(ex)
+        finally:
+            db.close()
+

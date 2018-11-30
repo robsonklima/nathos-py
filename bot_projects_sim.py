@@ -27,6 +27,6 @@ def execute():
 
                     for cat in category_split:
                         if cat:
-                            DbCategory.insert_category(project['project_id'], cat.strip(), category['confidence'])
+                            DbCategory.insert(project['project_id'], cat.strip(), category['confidence'])
     except Exception as ex:
         print(ex)

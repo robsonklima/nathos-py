@@ -1,8 +1,9 @@
 
 
-from db_project import DbProject
+from db_category import DbCategory
 
-projects = DbProject.get_all()
+categories = DbCategory.get_by_project_id(1)
 
-for project in projects:
-    print(project[1])
+for category in categories:
+    print(category['title'])
+

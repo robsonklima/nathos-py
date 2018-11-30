@@ -4,11 +4,9 @@
     <list default="true" id="50ced62a-b45a-4de6-8387-30b51a52e2cd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backup/_test_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/backup/_test_db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot_projects_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_projects_sim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_recommendation_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_recommendation_engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_project.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_project.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/tmp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db_scripts/tmp.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_category.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_category.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,32 +17,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="bot_recommendation_engine.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bot_recommendation_engine.py">
+      <file leaf-file-name="db_category.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db_category.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bot_projects_sim.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bot_projects_sim.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db_project.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/db_project.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+            <state relative-caret-position="-253">
+              <caret line="9" column="33" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="33" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_test.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -81,6 +70,14 @@
       <find>types</find>
       <find>result</find>
       <find>get_all_projects</find>
+      <find>get_projects_by_category</find>
+      <find>get_unclassified_projects</find>
+      <find>project[1]</find>
+      <find>get_all_categories</find>
+      <find>get_categories_by_project</find>
+      <find>delete_all_categories</find>
+      <find>insert_category</find>
+      <find>get_by_project</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -145,7 +142,6 @@
         <option value="$PROJECT_DIR$/wmd.py" />
         <option value="$PROJECT_DIR$/_db_test.py" />
         <option value="$PROJECT_DIR$/_test_db.py" />
-        <option value="$PROJECT_DIR$/db_category.py" />
         <option value="$PROJECT_DIR$/bot_projects_similarity.py" />
         <option value="$PROJECT_DIR$/bot_context_similarity.py" />
         <option value="$PROJECT_DIR$/git_repos_extractor.py" />
@@ -160,10 +156,11 @@
         <option value="$PROJECT_DIR$/bot_context_history_sim.py" />
         <option value="$PROJECT_DIR$/bot_requirements_sim.py" />
         <option value="$PROJECT_DIR$/db_tmp.py" />
-        <option value="$PROJECT_DIR$/_test.py" />
         <option value="$PROJECT_DIR$/bot_recommendation_engine.py" />
         <option value="$PROJECT_DIR$/bot_projects_sim.py" />
         <option value="$PROJECT_DIR$/db_project.py" />
+        <option value="$PROJECT_DIR$/db_category.py" />
+        <option value="$PROJECT_DIR$/_test.py" />
       </list>
     </option>
   </component>
@@ -221,7 +218,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.bot_recommendation_engine">
+  <component name="RunManager" selected="Python._test">
     <configuration name="_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="nhatos" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -323,8 +320,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.bot_recommendation_engine" />
         <item itemvalue="Python._test" />
+        <item itemvalue="Python.bot_recommendation_engine" />
         <item itemvalue="Python.bot_requirements_sim" />
         <item itemvalue="Python.bot_search" />
         <item itemvalue="Python.bot_projects_sim" />
@@ -370,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543592384786</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refactoring on DbProjects to fetch dist Python list">
+      <created>1543602478454</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1543602478454</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -386,11 +390,11 @@
     <frame x="0" y="23" width="1280" height="729" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21445592" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21445592" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32911393" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.50039715" side_tool="true" weight="0.32911393" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49960285" weight="0.3971519" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49960285" visible="true" weight="0.3971519" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Python Console" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -415,7 +419,8 @@
     <MESSAGE value="Testing Commit from PyCharm" />
     <MESSAGE value="Remove SQL file" />
     <MESSAGE value="Refactoring on tmp update query" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring on tmp update query" />
+    <MESSAGE value="Refactoring on DbProjects to fetch dist Python list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring on DbProjects to fetch dist Python list" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -567,13 +572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_category.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="47" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db_repo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -681,13 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_recommendation_engine.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -698,17 +689,34 @@
     <entry file="file://$PROJECT_DIR$/bot_projects_sim.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
+          <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db_project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+        <state relative-caret-position="150">
+          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="21" selection-end-column="22" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_category.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-253">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
         </state>
       </provider>
     </entry>
