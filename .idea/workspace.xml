@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50ced62a-b45a-4de6-8387-30b51a52e2cd" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/db_recommendation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_requirements_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_requirements_sim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_repo.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_repo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_tmp.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_tmp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/git_commits_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/git_commits_extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/git_repos_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/git_repos_extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot_recommendation_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_recommendation_engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_search.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,9 +17,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="db_recommendation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db_recommendation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+              <folding>
+                <element signature="e#209#614#0" />
+                <element signature="e#778#1218#0" />
+                <element signature="e#664#955#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="_test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_test.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -73,6 +89,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/git_repos_extractor.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/db_recommendation.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/_test.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/gapi_classify.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/backup/_test.py" root0="SKIP_INSPECTION" />
@@ -131,12 +148,10 @@
         <option value="$PROJECT_DIR$/_test_db.py" />
         <option value="$PROJECT_DIR$/bot_projects_similarity.py" />
         <option value="$PROJECT_DIR$/bot_context_similarity.py" />
-        <option value="$PROJECT_DIR$/bot_search.py" />
         <option value="$PROJECT_DIR$/gapi_classify.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/bot_context_history_storage.py" />
         <option value="$PROJECT_DIR$/bot_context_history_sim.py" />
-        <option value="$PROJECT_DIR$/bot_recommendation_engine.py" />
         <option value="$PROJECT_DIR$/bot_projects_sim.py" />
         <option value="$PROJECT_DIR$/db_category.py" />
         <option value="$PROJECT_DIR$/bot_requirements_sim.py" />
@@ -147,6 +162,9 @@
         <option value="$PROJECT_DIR$/git_repos_extractor.py" />
         <option value="$PROJECT_DIR$/db_repo.py" />
         <option value="$PROJECT_DIR$/db_tmp.py" />
+        <option value="$PROJECT_DIR$/bot_recommendation_engine.py" />
+        <option value="$PROJECT_DIR$/bot_search.py" />
+        <option value="$PROJECT_DIR$/db_recommendation.py" />
         <option value="$PROJECT_DIR$/_test.py" />
       </list>
     </option>
@@ -375,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543610784721</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Refactoring on DbTmp to fetch dist Python list">
+      <created>1543611210100</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1543611210100</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -423,7 +448,8 @@
     <MESSAGE value="Refactoring on DbProjects to fetch dist Python list" />
     <MESSAGE value="Refactoring on DbCategories to fetch dist Python list" />
     <MESSAGE value="Refactoring on DbRepo and DbCommit to fetch dist Python list" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring on DbRepo and DbCommit to fetch dist Python list" />
+    <MESSAGE value="Refactoring on DbTmp to fetch dist Python list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring on DbTmp to fetch dist Python list" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -631,13 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot_search.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_projects_sim.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
@@ -649,20 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-58">
           <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot_recommendation_engine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/git_commits_extractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -700,33 +705,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/git_commits_extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot_search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_tmp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" column="27" lean-forward="true" selection-end-line="34" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot_recommendation_engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/db_project.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="70" column="4" lean-forward="true" selection-start-line="70" selection-start-column="4" selection-end-line="82" selection-end-column="22" />
+        <state relative-caret-position="77">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="36" selection-end-column="22" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
             <element signature="e#198#580#0" />
-            <element signature="e#627#1018#0" />
             <element signature="e#1081#1589#0" />
             <element signature="e#1645#2092#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_tmp.py">
+    <entry file="file://$PROJECT_DIR$/db_recommendation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="229">
+          <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
           <folding>
-            <element signature="e#221#626#0" />
-            <element signature="e#869#1169#0" />
+            <element signature="e#209#614#0" />
+            <element signature="e#778#1218#0" />
+            <element signature="e#664#955#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_test.py">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

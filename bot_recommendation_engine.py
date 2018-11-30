@@ -13,13 +13,13 @@ import bot_context_history_storage
 #def execute_schedule():
 print(u"recommendation_engine started: {}".format(time.strftime(u"%H:%M%:%S")))
 
-bot_projects_sim.execute()
+#bot_projects_sim.execute()
 print(u"bot_projects_similarity finished")
 
 #bot_context_history_sim.execute()
 print(u"bot_context_history_sim finished")
 
-#bot_search.execute()
+bot_search.execute()
 print(u"bot_search finished")
 
 #bot_requirements_sim.execute()
