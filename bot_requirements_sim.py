@@ -57,7 +57,6 @@ def execute():
             if not os.path.exists(dir + file):
                 raise ValueError(u"SKIP: You need to download the google news model")
 
-            #result = []
             for sentence in list_of_sentences:
                 orig_sentence = sentence;
                 sentence = sentence.lower().split()
@@ -65,7 +64,6 @@ def execute():
                 distance = model.wmdistance(sentence_to_compare, sentence)
 
                 if distance < 1 and distance > 0:
-                    #result.append({ u'distance': distance, u'sentence': orig_sentence })
                     DbTmp.insert_tmp(distance, orig_sentence_to_compare, orig_sentence)
 
     except Exception as ex:

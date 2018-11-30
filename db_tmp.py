@@ -7,14 +7,14 @@ with open('config/config.json') as json_data_file:
 
 class DbTmp:
     @staticmethod
-    def insert_tmp(distance, sentence_to_compare, sentence_commit):
+    def insert_tmp(distance, sentence_a, sentence_b):
         try:
             db = mysql.connector.connect(**config["mysql"])
             cursor = db.cursor(buffered=True)
             query = u"INSERT INTO tmp " \
-                    u"(distance, sentence_to_compare, sentence_commit, created_at) " \
+                    u"(distance, sentence_a, sentence_b, created_at) " \
                     u"VALUES ({0}, '{1}', '{2}', now())" \
-                    .format(distance, sentence_to_compare, sentence_commit)
+                    .format(distance, sentence_a, sentence_b)
             cursor.execute(query)
             db.commit()
 
