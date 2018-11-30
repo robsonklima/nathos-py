@@ -1,5 +1,5 @@
 import json
-import mysql.connector
+import pymysql
 
 with open('config/config.json') as json_data_file:
     config = json.load(json_data_file)
@@ -7,65 +7,79 @@ with open('config/config.json') as json_data_file:
 
 class DbRepo:
     @staticmethod
-    def insert_repo(name, full_name, owner, stargazers_count, language, description, area):
+    def insert(name, full_name, owner, stargazers_count, language, description, area):
+
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"INSERT INTO `repos` (`name`, `full_name`, `owner`, `stargazers_count`," \
+                    u" `language`, `description`, `area`) VALUES (%s, %s, %s, %s, %s, %s, %s);"
 
-            query = u"INSERT INTO repos (name, full_name, owner, stargazers_count, " \
-                    u"language, description, area, created_at) " \
-                    u"VALUES ('{0}', '{1}', '{2}', {3}, '{4}', '{5}', '{6}', now())" \
-                    .format(name, full_name, owner, stargazers_count, language, description, area)
-
-            cursor.execute(query)
-            db.commit()
-
-            if cursor.lastrowid:
-                return cursor.lastrowid
-
-        except Exception as e:
-            print(e)
+                cursor.execute(q, (name, full_name, owner, stargazers_count, language, description, area))
+                db.commit()
+        except Exception as ex:
+            print(ex)
         finally:
-            cursor.close()
             db.close()
 
     @staticmethod
-    def get_all_repos():
+    def delete_by_id(repo_id):
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            cursor.execute(u"SELECT * FROM repos")
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"DELETE FROM `repos` WHERE `repo_id` = %s;"
+                cursor.execute(q, (repo_id))
+
+                if cursor.lastrowid:
+                    return cursor.lastrowid
+
+            db.commit()
+        except Exception as ex:
+            print(ex)
+        finally:
+            db.close()
+
+    @staticmethod
+    def get_all():
+        try:
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor(pymysql.cursors.DictCursor) as cursor:
+                sql = u"SELECT * FROM `repos`" \
+                      u" ORDER BY `repo_id` DESC"
+                cursor.execute(sql)
 
             return cursor.fetchall()
-        except Exception as e:
-            print(e)
+        except Exception as ex:
+            print(ex)
         finally:
-            cursor.close()
             db.close()
 
     @staticmethod
     def get_by_area(area):
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            cursor.execute(u"SELECT * FROM repos WHERE area = '{0}'".format(area))
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor(pymysql.cursors.DictCursor) as cursor:
+                sql = u"SELECT * FROM `repos`" \
+                      u" WHERE `area`=%s" \
+                      u" ORDER BY `repo_id` DESC"
+                cursor.execute(sql, (area))
 
             return cursor.fetchall()
-        except Exception as e:
-            print(e)
+        except Exception as ex:
+            print(ex)
         finally:
-            cursor.close()
             db.close()
 
     @staticmethod
-    def delete_all_repos():
+    def delete_all():
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            cursor.execute(u"DELETE FROM repos")
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"DELETE FROM `repos`;"
+                cursor.execute(q)
+
             db.commit()
-        except Exception as e:
-            print(e)
+        except Exception as ex:
+            print(ex)
         finally:
-            cursor.close()
             db.close()

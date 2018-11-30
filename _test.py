@@ -1,9 +1,10 @@
 
 
-from db_category import DbCategory
+from db_commit import DbCommit
 
-categories = DbCategory.get_by_project_id(1)
+#DbCommit.insert("message", "aut", "2018-10-10", 8216)
 
-for category in categories:
-    print(category['title'])
+commits = DbCommit.get_by_repo_id(8216)
 
+for commit in commits:
+    print(commit['commit_id'])

@@ -26,9 +26,9 @@ class DbProject:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                sql = u"SELECT * FROM `projects` " \
+                q = u"SELECT * FROM `projects` " \
                       u"ORDER BY `project_id` DESC"
-                cursor.execute(sql)
+                cursor.execute(q)
 
             return cursor.fetchall()
         except Exception as ex:

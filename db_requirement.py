@@ -1,68 +1,81 @@
 import json
-import mysql.connector
+import pymysql
 
-with open('config/config.json') as json_data_file:
+with open(u'config/config.json') as json_data_file:
     config = json.load(json_data_file)
 
 
 class DbRequirement:
     @staticmethod
-    def get_all_requirements():
+    def insert(project_id, title, description, type, rat, language):
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            cursor.execute(u"SELECT * FROM requirements ORDER BY requirement_id DESC")
+            db = pymysql.connect(**config[u"mysql"])
+            with db.cursor() as cursor:
+                q = u"INSERT INTO `requirements` (`project_id`, `title`," \
+                    u" `description`, `type`, `rat`, `language`, `created_at`)" \
+                    u" VALUES (%s, %s, %s, %s, %s, %s, now());"
+                cursor.execute(q, (project_id, title, description, type, rat, language))
 
-            return cursor.fetchall()
-        except Exception as e:
-            print(e)
+            db.commit()
+        except Exception as ex:
+            print(ex)
         finally:
-            cursor.close()
             db.close()
 
     @staticmethod
-    def get_untranslated_requirements():
+    def get_all():
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-            cursor.execute(u"SELECT * FROM requirements r "
-                           u"WHERE r.language IS NULL OR r.language <> 'en'"
-                           u"ORDER BY r.requirement_id ASC;")
+            db = pymysql.connect(**config[u"mysql"])
+            with db.cursor(pymysql.cursors.DictCursor) as cursor:
+                sql = u"SELECT * FROM `requirements` " \
+                      u"ORDER BY `requirement_id` DESC;"
+                cursor.execute(sql)
 
             return cursor.fetchall()
-        except Exception as e:
-            print(e)
+        except Exception as ex:
+            print(ex)
         finally:
-            cursor.close()
+            db.close()
+
+    @staticmethod
+    def get_untranslated():
+        try:
+            db = pymysql.connect(**config[u"mysql"])
+            with db.cursor(pymysql.cursors.DictCursor) as cursor:
+                sql = u"SELECT * FROM `requirements` r " \
+                      u" WHERE `language` IS NULL OR `language` <> 'en'" \
+                      u" ORDER BY `requirement_id` ASC;"
+                cursor.execute(sql)
+
+            return cursor.fetchall()
+        except Exception as ex:
+            print(ex)
+        finally:
             db.close()
 
     @staticmethod
     def update(project_id, title, description, type, rat, language, requirement_id):
         try:
-            db = mysql.connector.connect(**config["mysql"])
-            cursor = db.cursor(buffered=True)
-
-            q = u"UPDATE requirements SET"
-
-            if project_id:
-                q += u" project_id = {},".format(project_id)
-            if title:
-                q += u" title = '{}',".format(title)
-            if description:
-                q += u" description = '{}',".format(description)
-            if type:
-                q += u" type = '{}',".format(type)
-            if rat:
-                q += u" rat = '{}',".format(rat)
-            if language:
-                q += u" language = '{}'".format(language)
-
-            q += u" WHERE requirement_id = {};".format(requirement_id)
-
-            cursor.execute(q)
-            db.commit()
-        except Exception as e:
-            print(e)
+            db = pymysql.connect(**config[u"mysql"])
+            with db.cursor() as cursor:
+                q = u"UPDATE `requirements`" \
+                    u" SET `project_id`=%s, `title`=%s, `description`=%s, `type`=%s, `rat`=%s, `language`=%s" \
+                    u" WHERE `requirement_id`=%s;"
+                cursor.execute(q, (project_id, title, description, type, rat, language, requirement_id))
+                db.commit()
         finally:
-            cursor.close()
+            db.close()
+
+    @staticmethod
+    def delete_by_id(requirement_id):
+        try:
+            db = pymysql.connect(**config[u"mysql"])
+            with db.cursor() as cursor:
+                q = u"DELETE FROM `requirements` WHERE requirement_id = %s;"
+                cursor.execute(q, (requirement_id))
+
+            db.commit()
+        except Exception as ex:
+            print(ex)
+        finally:
             db.close()

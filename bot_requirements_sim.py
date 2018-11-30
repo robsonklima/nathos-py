@@ -20,16 +20,16 @@ from db_tmp import DbTmp
 def execute():
     try:
         # Clear tmp
-        DbTmp.delete_all_tmp()
+        DbTmp.delete_all()
 
         # Translate Requirements
-        requirements = DbRequirement.get_untranslated_requirements()
+        requirements = DbRequirement.get_untranslated()
 
         for requirement in requirements:
             translated_title = gapi_translate.translate(requirement[2])
             translated_description = gapi_translate.translate(requirement[3])
-            DbRequirement.update(requirement[1], translated_title, translated_description,
-                                 requirement[4], requirement[5], "en", requirement[0])
+            DbRequirement.update(requirement['project_id'], translated_title, translated_description,
+                                 requirement['type'], requirement['rat'], "en", requirement['requirement_id'])
 
 
         # Start WMD
@@ -44,12 +44,12 @@ def execute():
         list_of_sentences = []
 
         # Get All Requirements
-        requirements = DbRequirement.get_all_requirements()
+        requirements = DbRequirement.get_all()
         for requirement in requirements:
-            list_of_sentences.append(requirement[3])
+            list_of_sentences.append(requirement['description'])
 
         for requirement in requirements:
-            sentence_to_compare = requirement[3]
+            sentence_to_compare = requirement['description']
             orig_sentence_to_compare = sentence_to_compare
             sentence_to_compare = sentence_to_compare.lower().split()
             sentence_to_compare = [w for w in sentence_to_compare if w not in stop_words]

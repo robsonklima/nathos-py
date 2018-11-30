@@ -9,7 +9,7 @@ from db_commit import DbCommit
 def execute():
     try:
         #Delete All Repos
-        DbRepo.delete_all_repos()
+        DbRepo.delete_all()
 
         # Get All Categories
         categories = DbCategory.get_all()
@@ -18,18 +18,18 @@ def execute():
             repos = GitReposExtractor.extract_all_by_topic(category[2], "")
 
             for repo in repos['items']:
-                DbRepo.insert_repo(repo['name'].replace("'", " "), repo['full_name'],
+                DbRepo.insert(repo['name'].replace("'", " "), repo['full_name'],
                                    repo['owner']['login'], repo['stargazers_count'],
                                    repo['language'], repo['description'], category[2])
 
         # Get All Repos
-        repos = DbRepo.get_all_repos()
+        repos = DbRepo.get_all()
 
         for repo in repos:
             commits = GitCommitsExtractor.extract_all_by_owner_repo(repo[4], repo[1], 1, 100)
 
             for commit in commits:
-                DbCommit.insert_commit(commit["commit"]["message"].replace("'", " "),
+                DbCommit.insert(commit["commit"]["message"].replace("'", " "),
                                        commit["commit"]["committer"]["email"],
                                        pd.to_datetime(commit["commit"]["committer"]["date"]),
                                        repo[0])

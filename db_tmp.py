@@ -28,7 +28,7 @@ class DbTmp:
             db.close()
 
     @staticmethod
-    def delete_all_tmp():
+    def delete_all():
         try:
             db = mysql.connector.connect(**config["mysql"])
             cursor = db.cursor(buffered=True)
