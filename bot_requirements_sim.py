@@ -15,19 +15,19 @@ import gapi_translate
 from db_project import DbProject
 from db_requirement import DbRequirement
 from db_commit import DbCommit
-from db_tmp import DbTmp
+from db_recommendation import DbRecommendation
 
 def execute():
     try:
-        # Clear tmp
-        DbTmp.delete_all()
+        # Clear Recommendations
+        DbRecommendation.delete_by_type("NEW_REQUIREMENTS")
 
         # Translate Requirements
         requirements = DbRequirement.get_untranslated()
 
         for requirement in requirements:
-            translated_title = gapi_translate.translate(requirement[2])
-            translated_description = gapi_translate.translate(requirement[3])
+            translated_title = gapi_translate.translate(requirement['title'])
+            translated_description = gapi_translate.translate(requirement['description'])
             DbRequirement.update(requirement['project_id'], translated_title, translated_description,
                                  requirement['type'], requirement['rat'], "en", requirement['requirement_id'])
 
@@ -41,9 +41,9 @@ def execute():
         model = gensim.models.KeyedVectors.load_word2vec_format(dir + file, binary=True)
         model.init_sims(replace=True)
 
-        list_of_sentences = []
 
         # Get All Requirements
+        list_of_sentences = []
         requirements = DbRequirement.get_all()
         for requirement in requirements:
             list_of_sentences.append(requirement['description'])
@@ -64,7 +64,6 @@ def execute():
                 distance = model.wmdistance(sentence_to_compare, sentence)
 
                 if distance < 1 and distance > 0:
-                    DbTmp.insert(distance, orig_sentence_to_compare, orig_sentence)
-
+                    DbRecommendation.insert(distance, orig_sentence_to_compare, orig_sentence, "NEW_REQUIREMENTS")
     except Exception as ex:
         print(ex)

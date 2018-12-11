@@ -83,13 +83,13 @@ class DbProject:
             db.close()
 
     @staticmethod
-    def update(name, description, language, project_id):
+    def update(name, description, project_id):
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"UPDATE `projects` SET `name` = %s, `description` = %s, `language` = %s " \
-                    u"WHERE `project_id` = %s"
-                cursor.execute(q, (name, description, language, project_id))
+                q = u" UPDATE `projects` SET `name`=%s, `description`=%s, `bot_modified_at`=now()" \
+                    u" WHERE `project_id` = %s"
+                cursor.execute(q, (name, description, project_id))
                 db.commit()
         finally:
             db.close()

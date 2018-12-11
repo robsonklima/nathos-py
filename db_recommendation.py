@@ -63,3 +63,17 @@ class DbRecommendation:
             print(ex)
         finally:
             db.close()
+
+    @staticmethod
+    def delete_by_type(type):
+        try:
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"DELETE FROM `recommendations` WHERE `type`=%s;"
+                cursor.execute(q, (type))
+
+            db.commit()
+        except Exception as ex:
+            print(ex)
+        finally:
+            db.close()

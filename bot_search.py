@@ -20,7 +20,7 @@ def execute():
             for repo in repos['items']:
                 DbRepo.insert(repo['name'].replace("'", " "), repo['full_name'],
                               repo['owner']['login'], repo['stargazers_count'],
-                              repo['language'], repo['description'], category[2])
+                              repo['description'], category[2])
 
         # Get All Repos
         repos = DbRepo.get_all()
