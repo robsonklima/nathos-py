@@ -26,7 +26,7 @@ class DbCategory:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                q = u"SELECT * FROM `categories`;"
+                q = u"SELECT * FROM `categories` ORDER BY title ASC;"
 
                 cursor.execute(q)
             return cursor.fetchall()

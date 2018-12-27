@@ -4,7 +4,8 @@
     <list default="true" id="50ced62a-b45a-4de6-8387-30b51a52e2cd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gapi_classify.py" beforeDir="false" afterPath="$PROJECT_DIR$/gapi_classify.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_category.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_category.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gapi_translate.py" beforeDir="false" afterPath="$PROJECT_DIR$/gapi_translate.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,7 +15,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="gapi_classify.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gapi_classify.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -81,6 +92,7 @@
     <setting file="file://$PROJECT_DIR$/db_tmp.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/db_requirement.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/gapi_entities.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/config/config.json" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/gapi_sentiment.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/gapi_syntax.py" root0="SKIP_INSPECTION" />
   </component>
@@ -103,7 +115,6 @@
         <option value="$PROJECT_DIR$/word_movers_distance.py" />
         <option value="$PROJECT_DIR$/word_movers_distance_scheduler.py" />
         <option value="$PROJECT_DIR$/gapi_classify_text.py" />
-        <option value="$PROJECT_DIR$/gapi_translate.py" />
         <option value="$PROJECT_DIR$/gapi_syntax.py" />
         <option value="$PROJECT_DIR$/gapi_sentiment.py" />
         <option value="$PROJECT_DIR$/gapi_entities.py" />
@@ -117,7 +128,6 @@
         <option value="$PROJECT_DIR$/bot_projects_similarity.py" />
         <option value="$PROJECT_DIR$/bot_context_similarity.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/db_category.py" />
         <option value="$PROJECT_DIR$/db_requirement.py" />
         <option value="$PROJECT_DIR$/db_commit.py" />
         <option value="$PROJECT_DIR$/git_commits_extractor.py" />
@@ -133,6 +143,8 @@
         <option value="$PROJECT_DIR$/bot_projects_sim.py" />
         <option value="$PROJECT_DIR$/db_project.py" />
         <option value="$PROJECT_DIR$/db_repo.py" />
+        <option value="$PROJECT_DIR$/db_category.py" />
+        <option value="$PROJECT_DIR$/gapi_translate.py" />
         <option value="$PROJECT_DIR$/_test.py" />
         <option value="$PROJECT_DIR$/gapi_classify.py" />
       </list>
@@ -383,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544499051560</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="REF UPDATE">
+      <created>1545908535824</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1545908535824</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -397,14 +416,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="729" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22557585" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22160445" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32911393" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.50119144" side_tool="true" weight="0.318038" />
       <window_info anchor="bottom" id="Find" order="5" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32911393" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49960285" weight="0.32594937" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49960285" visible="true" weight="0.32594937" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -433,7 +453,8 @@
     <MESSAGE value="Refactoring on DbTmp to fetch dist Python list" />
     <MESSAGE value="Added DbRecommendation" />
     <MESSAGE value="REF a lot of arquives" />
-    <option name="LAST_COMMIT_MESSAGE" value="REF a lot of arquives" />
+    <MESSAGE value="REF UPDATE" />
+    <option name="LAST_COMMIT_MESSAGE" value="REF UPDATE" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -478,21 +499,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gapi_entities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="41" lean-forward="true" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wmd_test.py" />
-    <entry file="file://$PROJECT_DIR$/config/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gapi_syntax.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -550,13 +557,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_recommendation_engine_V01.py" />
-    <entry file="file://$PROJECT_DIR$/gapi_translate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="33" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -579,13 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db_commit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -594,16 +587,6 @@
             <element signature="e#224#730#0" />
             <element signature="e#715#1110#0" />
             <element signature="e#1169#1620#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/git_repos_extractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-          <folding>
-            <element signature="e#47#62#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -691,20 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_category.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#211#625#0" />
-            <element signature="e#672#1011#0" />
-            <element signature="e#1078#1453#0" />
-            <element signature="e#1516#1854#0" />
-            <element signature="e#1904#2202#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_requirements_sim.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
@@ -741,20 +710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_repo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot_projects_sim.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_recommendation_engine.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -769,20 +724,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gapi_classify.py">
+    <entry file="file://$PROJECT_DIR$/config/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="18" column="85" selection-start-line="18" selection-start-column="85" selection-end-line="18" selection-end-column="85" />
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_category.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#211#625#0" />
+            <element signature="e#1078#1453#0" />
+            <element signature="e#1516#1854#0" />
+            <element signature="e#1904#2202#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot_projects_sim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_repo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gapi_entities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="41" lean-forward="true" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/git_repos_extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" selection-end-column="23" />
+          <folding>
+            <element signature="e#47#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gapi_translate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="76" lean-forward="true" selection-start-line="6" selection-start-column="76" selection-end-line="6" selection-end-column="76" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="105">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gapi_classify.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
         </state>
       </provider>
     </entry>
