@@ -16,7 +16,7 @@ def classify_text(text, verbose=False):
 
         result = []
         for category in categories:
-            result.append({'name': category.name, 'confidence': category.confidence})
+            result.append({ 'name': category.name, 'confidence': category.confidence })
 
         if verbose:
             print(result)

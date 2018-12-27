@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50ced62a-b45a-4de6-8387-30b51a52e2cd" name="Default" comment="Added DbRecommendation">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="50ced62a-b45a-4de6-8387-30b51a52e2cd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_context_history_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_context_history_sim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_context_history_storage.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_context_history_storage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_projects_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_projects_sim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_recommendation_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_recommendation_engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_requirements_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_requirements_sim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_project.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_project.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_recommendation.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_recommendation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gapi_classify.py" beforeDir="false" afterPath="$PROJECT_DIR$/gapi_classify.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -123,7 +116,6 @@
         <option value="$PROJECT_DIR$/_test_db.py" />
         <option value="$PROJECT_DIR$/bot_projects_similarity.py" />
         <option value="$PROJECT_DIR$/bot_context_similarity.py" />
-        <option value="$PROJECT_DIR$/gapi_classify.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/db_category.py" />
         <option value="$PROJECT_DIR$/db_requirement.py" />
@@ -131,7 +123,6 @@
         <option value="$PROJECT_DIR$/git_commits_extractor.py" />
         <option value="$PROJECT_DIR$/git_repos_extractor.py" />
         <option value="$PROJECT_DIR$/db_tmp.py" />
-        <option value="$PROJECT_DIR$/_test.py" />
         <option value="$PROJECT_DIR$/db_recommendation.py" />
         <option value="$PROJECT_DIR$/backup/bot_requirements_sim_02.py" />
         <option value="$PROJECT_DIR$/bot_context_history_sim.py" />
@@ -142,6 +133,8 @@
         <option value="$PROJECT_DIR$/bot_projects_sim.py" />
         <option value="$PROJECT_DIR$/db_project.py" />
         <option value="$PROJECT_DIR$/db_repo.py" />
+        <option value="$PROJECT_DIR$/_test.py" />
+        <option value="$PROJECT_DIR$/gapi_classify.py" />
       </list>
     </option>
   </component>
@@ -199,13 +192,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.bot_recommendation_engine">
+  <component name="RunManager" selected="Python._test">
     <configuration name="_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="nhatos" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="GOOGLE_APPLICATION_CREDENTIALS" value="gapi_key/gapi_key.json" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -300,9 +294,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.bot_recommendation_engine" />
-        <item itemvalue="Python.bot_recommendation_engine" />
         <item itemvalue="Python._test" />
+        <item itemvalue="Python.bot_recommendation_engine" />
+        <item itemvalue="Python.bot_recommendation_engine" />
         <item itemvalue="Python.bot_requirements_sim" />
         <item itemvalue="Python.bot_search" />
       </list>
@@ -382,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543615487211</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="REF a lot of arquives">
+      <created>1544499051559</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1544499051560</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -403,7 +404,7 @@
       <window_info anchor="bottom" id="Find" order="5" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32911393" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49960285" visible="true" weight="0.32594937" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49960285" weight="0.32594937" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -431,7 +432,8 @@
     <MESSAGE value="Refactoring on DbRepo and DbCommit to fetch dist Python list" />
     <MESSAGE value="Refactoring on DbTmp to fetch dist Python list" />
     <MESSAGE value="Added DbRecommendation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added DbRecommendation" />
+    <MESSAGE value="REF a lot of arquives" />
+    <option name="LAST_COMMIT_MESSAGE" value="REF a lot of arquives" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -634,24 +636,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="30" lean-forward="true" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backup/bot_recommendation_engine_01.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gapi_classify.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -778,6 +766,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gapi_classify.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="18" column="85" selection-start-line="18" selection-start-column="85" selection-end-line="18" selection-end-column="85" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
