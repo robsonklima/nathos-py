@@ -27,7 +27,7 @@ class DbProject:
             db = pymysql.connect(**config["mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
                 q = u"SELECT * FROM `projects` " \
-                      u"ORDER BY `project_id` DESC"
+                      u"ORDER BY `project_id` ASC;"
                 cursor.execute(q)
 
             return cursor.fetchall()
@@ -69,6 +69,22 @@ class DbProject:
             db.close()
 
     @staticmethod
+    def get_untranslated():
+        try:
+            db = pymysql.connect(**config[u"mysql"])
+            with db.cursor(pymysql.cursors.DictCursor) as cursor:
+                sql = u"SELECT * FROM `projects` p " \
+                      u" WHERE `language` IS NULL OR `language` <> 'en'" \
+                      u" ORDER BY `project_id` ASC;"
+                cursor.execute(sql)
+
+            return cursor.fetchall()
+        except Exception as ex:
+            print(ex)
+        finally:
+            db.close()
+
+    @staticmethod
     def delete_by_id(project_id):
         try:
             db = pymysql.connect(**config["mysql"])
@@ -83,13 +99,13 @@ class DbProject:
             db.close()
 
     @staticmethod
-    def update(name, description, project_id):
+    def update(name, description, language, project_id):
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u" UPDATE `projects` SET `name`=%s, `description`=%s, `bot_modified_at`=now()" \
+                q = u" UPDATE `projects` SET `name`=%s, `description`=%s, `language`=%s, `bot_modified_at`=now()" \
                     u" WHERE `project_id` = %s"
-                cursor.execute(q, (name, description, project_id))
+                cursor.execute(q, (name, description, language, project_id))
                 db.commit()
         finally:
             db.close()

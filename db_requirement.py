@@ -28,7 +28,7 @@ class DbRequirement:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
                 sql = u"SELECT * FROM `requirements` " \
-                      u"ORDER BY `requirement_id` DESC;"
+                      u"ORDER BY `requirement_id` ASC;"
                 cursor.execute(sql)
 
             return cursor.fetchall()
@@ -58,8 +58,9 @@ class DbRequirement:
         try:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor() as cursor:
-                q = u"UPDATE `requirements`" \
-                    u" SET `project_id`=%s, `title`=%s, `description`=%s, `type`=%s, `rat`=%s, `language`=%s" \
+                q = u"UPDATE `requirements` SET " \
+                    u"`project_id`=%s, `title`=%s, `description`=%s, `type`=%s, " \
+                    u"`rat`=%s, `language`=%s, `bot_modified_at`=now() " \
                     u" WHERE `requirement_id`=%s;"
                 cursor.execute(q, (project_id, title, description, type, rat, language, requirement_id))
                 db.commit()

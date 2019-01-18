@@ -7,13 +7,15 @@ import gapi_translate
 def execute():
     try:
         # Translate Projects
-        projects = DbProject.get_all()
+        projects = DbProject.get_untranslated()
 
         for project in projects:
             if project['user_modified_at'] > project['bot_modified_at'] or project['bot_modified_at'] is None:
                 translated_name = gapi_translate.translate(project['name'])
                 translated_description = gapi_translate.translate(project['description'])
-                DbProject.update(translated_name, translated_description, project['project_id'])
+                if translated_name is not None and translated_description is not None:
+                    DbProject.update(translated_name, translated_description, 'en', project['project_id'])
+
 
         # Classify Projects
         projects = DbProject.get_unclassified()

@@ -28,14 +28,15 @@ def execute():
         for requirement in requirements:
             translated_title = gapi_translate.translate(requirement['title'])
             translated_description = gapi_translate.translate(requirement['description'])
-            DbRequirement.update(requirement['project_id'], translated_title, translated_description,
-                                 requirement['type'], requirement['rat'], "en", requirement['requirement_id'])
+            if translated_title is not None and translated_description is not None:
+                DbRequirement.update(requirement['project_id'], translated_title, translated_description,
+                                     requirement['type'], requirement['rat'], "en", requirement['requirement_id'])
 
 
         # Start WMD
         logging.basicConfig(format=u'%(asctime)s : %(levelname)s : %(message)s')
         dir = os.path.dirname(__file__)
-        #download(u'stopwords')
+        download(u'stopwords')
         stop_words = set(stopwords.words(u'english'))
         file = u'/data/GoogleNews-vectors-negative300.bin.gz'
         model = gensim.models.KeyedVectors.load_word2vec_format(dir + file, binary=True)
@@ -49,6 +50,8 @@ def execute():
             list_of_sentences.append(requirement['description'])
 
         for requirement in requirements:
+            print(u'Requirement {} processing'.format(requirement['requirement_id']))
+
             sentence_to_compare = requirement['description']
             orig_sentence_to_compare = sentence_to_compare
             sentence_to_compare = sentence_to_compare.lower().split()
