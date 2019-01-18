@@ -12,5 +12,5 @@ LEFT JOIN		projects projA ON reqA.project_id = projA.project_id
 LEFT JOIN		projects projB ON reqB.project_id = projB.project_id
 WHERE			(1=1)
 AND				projA.project_id <> projB.project_id
-#AND				reqA.requirement_id = 1432
+#AND				reqA.requirement_id = 51
 ORDER BY		distance ASC;

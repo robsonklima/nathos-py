@@ -1,4 +1,6 @@
 import json
+from os import stat_result
+
 import pymysql
 
 with open(u'config/config.json') as json_data_file:
@@ -47,6 +49,26 @@ class DbRequirement:
                       u" ORDER BY `requirement_id` ASC;"
                 cursor.execute(sql)
 
+            return cursor.fetchall()
+        except Exception as ex:
+            print(ex)
+        finally:
+            db.close()
+
+    @staticmethod
+    def get_not_recommended():
+        try:
+            db = pymysql.connect(**config[u"mysql"])
+            with db.cursor(pymysql.cursors.DictCursor) as cursor:
+                sql = u"SELECT 	* " \
+                      u"FROM 	requirements r " \
+                      u"WHERE	r.requirement_id NOT IN ( " \
+                      u"  		SELECT 			DISTINCT(req.requirement_id) " \
+                      u"		FROM 			requirements req " \
+                      u"			INNER JOIN	recommendations rec ON req.description = rec.sentence_a " \
+                      u"		)" \
+                      u"		ORDER BY r.requirement_id ASC;"
+                cursor.execute(sql)
             return cursor.fetchall()
         except Exception as ex:
             print(ex)

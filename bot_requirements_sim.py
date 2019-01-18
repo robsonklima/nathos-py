@@ -19,9 +19,6 @@ from db_recommendation import DbRecommendation
 
 def execute():
     try:
-        # Clear Recommendations
-        DbRecommendation.delete_by_type("NEW_REQUIREMENTS")
-
         # Translate Requirements
         requirements = DbRequirement.get_untranslated()
 
@@ -29,11 +26,12 @@ def execute():
             translated_title = gapi_translate.translate(requirement['title'])
             translated_description = gapi_translate.translate(requirement['description'])
             if translated_title is not None and translated_description is not None:
-                DbRequirement.update(requirement['project_id'], translated_title, translated_description,
-                                     requirement['type'], requirement['rat'], "en", requirement['requirement_id'])
+                DbRequirement.update(requirement['project_id'], translated_title,
+                                     translated_description, requirement['type'],
+                                     requirement['rat'], "en", requirement['requirement_id'])
 
 
-        # Start WMD
+        # Instantiate Word Mover's Distance
         logging.basicConfig(format=u'%(asctime)s : %(levelname)s : %(message)s')
         dir = os.path.dirname(__file__)
         download(u'stopwords')
@@ -43,9 +41,10 @@ def execute():
         model.init_sims(replace=True)
 
 
-        # Get All Requirements
+        # Get Not Recommended Requirements
         list_of_sentences = []
-        requirements = DbRequirement.get_all()
+        requirements = DbRequirement.get_not_recommended()
+
         for requirement in requirements:
             list_of_sentences.append(requirement['description'])
 
