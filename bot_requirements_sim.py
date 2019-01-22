@@ -43,7 +43,7 @@ def execute():
 
         # Get Not Recommended Requirements
         list_of_sentences = []
-        requirements = DbRequirement.get_not_recommended()
+        requirements = DbRequirement.get_unrecommended()
 
         for requirement in requirements:
             list_of_sentences.append(requirement['description'])
@@ -65,7 +65,8 @@ def execute():
                 sentence = [w for w in sentence if w not in stop_words]
                 distance = model.wmdistance(sentence_to_compare, sentence)
 
-                if distance < 1 and distance > 0:
-                    DbRecommendation.insert(distance, orig_sentence_to_compare, orig_sentence, "NEW_REQUIREMENTS")
+                print(orig_sentence_to_compare, distance)
+                #if distance < 1 and distance > 0:
+                    #DbRecommendation.insert(distance, orig_sentence_to_compare, orig_sentence, "NEW_REQUIREMENTS")
     except Exception as ex:
         print(ex)

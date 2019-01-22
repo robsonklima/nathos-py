@@ -44,9 +44,7 @@ class DbRequirement:
         try:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                sql = u"SELECT * FROM `requirements` r " \
-                      u" WHERE `language` IS NULL OR `language` <> 'en'" \
-                      u" ORDER BY `requirement_id` ASC;"
+                sql = u"SELECT * FROM requirements_get_untranslated;"
                 cursor.execute(sql)
 
             return cursor.fetchall()
@@ -56,18 +54,11 @@ class DbRequirement:
             db.close()
 
     @staticmethod
-    def get_not_recommended():
+    def get_unrecommended():
         try:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                sql = u"SELECT 	* " \
-                      u"FROM 	requirements r " \
-                      u"WHERE	r.requirement_id NOT IN ( " \
-                      u"  		SELECT 			DISTINCT(req.requirement_id) " \
-                      u"		FROM 			requirements req " \
-                      u"			INNER JOIN	recommendations rec ON req.description = rec.sentence_a " \
-                      u"		)" \
-                      u"		ORDER BY r.requirement_id ASC;"
+                sql = u"SELECT 	* FROM requirements_get_unrecommended;"
                 cursor.execute(sql)
             return cursor.fetchall()
         except Exception as ex:
