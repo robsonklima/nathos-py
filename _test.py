@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import gapi_translate
+from db_recommendation import DbRecommendation
+from db_project import DbProject
 
-text = u"O sistema deve conter funcionalidade de fala para coletar o que o usuário necessita"
-t_text = gapi_translate.translate(text)
+projects = DbProject.get_unclassified()
 
-print(t_text)
+print(len(projects))

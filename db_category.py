@@ -64,6 +64,20 @@ class DbCategory:
             db.close()
 
     @staticmethod
+    def delete_by_project_id(project_id):
+        try:
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"DELETE FROM `categories` WHERE `project_id` = %s;"
+                cursor.execute(q, (project_id))
+
+            db.commit()
+        except Exception as ex:
+            print(ex)
+        finally:
+            db.close()
+
+    @staticmethod
     def delete_all():
         try:
             db = pymysql.connect(**config["mysql"])

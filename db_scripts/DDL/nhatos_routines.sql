@@ -42,7 +42,8 @@ SET character_set_client = utf8;
  1 AS `project_id`,
  1 AS `name`,
  1 AS `description`,
- 1 AS `language`,
+ 1 AS `translated`,
+ 1 AS `classified`,
  1 AS `user_modified_at`,
  1 AS `bot_modified_at`,
  1 AS `created_at`,
@@ -51,27 +52,6 @@ SET character_set_client = utf8;
  1 AS `tasks_count`,
  1 AS `percentage_completed`,
  1 AS `size`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `requirements_get_unrecommended`
---
-
-DROP TABLE IF EXISTS `requirements_get_unrecommended`;
-/*!50001 DROP VIEW IF EXISTS `requirements_get_unrecommended`*/;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-/*!50001 CREATE VIEW `requirements_get_unrecommended` AS SELECT 
- 1 AS `requirement_id`,
- 1 AS `project_id`,
- 1 AS `title`,
- 1 AS `description`,
- 1 AS `type`,
- 1 AS `rat`,
- 1 AS `language`,
- 1 AS `user_modified_at`,
- 1 AS `bot_modified_at`,
- 1 AS `created_at`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -124,7 +104,27 @@ SET character_set_client = utf8;
  1 AS `description`,
  1 AS `type`,
  1 AS `rat`,
- 1 AS `language`,
+ 1 AS `translated`,
+ 1 AS `user_modified_at`,
+ 1 AS `bot_modified_at`,
+ 1 AS `created_at`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `projects_get_untranslated`
+--
+
+DROP TABLE IF EXISTS `projects_get_untranslated`;
+/*!50001 DROP VIEW IF EXISTS `projects_get_untranslated`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `projects_get_untranslated` AS SELECT 
+ 1 AS `project_id`,
+ 1 AS `name`,
+ 1 AS `description`,
+ 1 AS `size`,
+ 1 AS `translated`,
+ 1 AS `classified`,
  1 AS `user_modified_at`,
  1 AS `bot_modified_at`,
  1 AS `created_at`*/;
@@ -145,7 +145,7 @@ SET character_set_client = utf8;
  1 AS `description`,
  1 AS `type`,
  1 AS `rat`,
- 1 AS `language`,
+ 1 AS `translated`,
  1 AS `user_modified_at`,
  1 AS `bot_modified_at`,
  1 AS `created_at`,
@@ -184,25 +184,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `projects_get_all` AS select `p`.`project_id` AS `project_id`,`p`.`name` AS `name`,`p`.`description` AS `description`,`p`.`language` AS `language`,`p`.`user_modified_at` AS `user_modified_at`,`p`.`bot_modified_at` AS `bot_modified_at`,`p`.`created_at` AS `created_at`,(select count(1) from `categories` where (`categories`.`project_id` = `p`.`project_id`)) AS `categories_count`,(select count(1) from `requirements` where (`requirements`.`project_id` = `p`.`project_id`)) AS `requirements_count`,(select count(1) from `tasks` `t` where `t`.`requirement_id` in (select `requirements`.`requirement_id` from `requirements` where (`requirements`.`project_id` = `p`.`project_id`))) AS `tasks_count`,cast(((select sum(`t`.`percentage_completed`) from `tasks` `t` where `t`.`requirement_id` in (select `requirements`.`requirement_id` from `requirements` where (`requirements`.`project_id` = `p`.`project_id`))) / (select count(1) from `tasks` `t` where `t`.`requirement_id` in (select `requirements`.`requirement_id` from `requirements` where (`requirements`.`project_id` = `p`.`project_id`)))) as decimal(10,1)) AS `percentage_completed`,`p`.`size` AS `size` from `projects` `p` */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `requirements_get_unrecommended`
---
-
-/*!50001 DROP VIEW IF EXISTS `requirements_get_unrecommended`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8 */;
-/*!50001 SET character_set_results     = utf8 */;
-/*!50001 SET collation_connection      = utf8_general_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `requirements_get_unrecommended` AS select `r`.`requirement_id` AS `requirement_id`,`r`.`project_id` AS `project_id`,`r`.`title` AS `title`,`r`.`description` AS `description`,`r`.`type` AS `type`,`r`.`rat` AS `rat`,`r`.`language` AS `language`,`r`.`user_modified_at` AS `user_modified_at`,`r`.`bot_modified_at` AS `bot_modified_at`,`r`.`created_at` AS `created_at` from `requirements` `r` where (isnull(`r`.`bot_modified_at`) or (`r`.`user_modified_at` > `r`.`bot_modified_at`)) order by `r`.`requirement_id` */;
+/*!50001 VIEW `projects_get_all` AS select `p`.`project_id` AS `project_id`,`p`.`name` AS `name`,`p`.`description` AS `description`,`p`.`translated` AS `translated`,`p`.`classified` AS `classified`,`p`.`user_modified_at` AS `user_modified_at`,`p`.`bot_modified_at` AS `bot_modified_at`,`p`.`created_at` AS `created_at`,(select count(1) from `categories` where (`categories`.`project_id` = `p`.`project_id`)) AS `categories_count`,(select count(1) from `requirements` where (`requirements`.`project_id` = `p`.`project_id`)) AS `requirements_count`,(select count(1) from `tasks` `t` where `t`.`requirement_id` in (select `requirements`.`requirement_id` from `requirements` where (`requirements`.`project_id` = `p`.`project_id`))) AS `tasks_count`,cast(((select sum(`t`.`percentage_completed`) from `tasks` `t` where `t`.`requirement_id` in (select `requirements`.`requirement_id` from `requirements` where (`requirements`.`project_id` = `p`.`project_id`))) / (select count(1) from `tasks` `t` where `t`.`requirement_id` in (select `requirements`.`requirement_id` from `requirements` where (`requirements`.`project_id` = `p`.`project_id`)))) as decimal(10,1)) AS `percentage_completed`,`p`.`size` AS `size` from `projects` `p` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -256,7 +238,25 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `requirements_get_untranslated` AS select `r`.`requirement_id` AS `requirement_id`,`r`.`project_id` AS `project_id`,`r`.`title` AS `title`,`r`.`description` AS `description`,`r`.`type` AS `type`,`r`.`rat` AS `rat`,`r`.`language` AS `language`,`r`.`user_modified_at` AS `user_modified_at`,`r`.`bot_modified_at` AS `bot_modified_at`,`r`.`created_at` AS `created_at` from `requirements` `r` where (isnull(`r`.`language`) or (`r`.`language` <> 'en')) order by `r`.`requirement_id` */;
+/*!50001 VIEW `requirements_get_untranslated` AS select `r`.`requirement_id` AS `requirement_id`,`r`.`project_id` AS `project_id`,`r`.`title` AS `title`,`r`.`description` AS `description`,`r`.`type` AS `type`,`r`.`rat` AS `rat`,`r`.`translated` AS `translated`,`r`.`user_modified_at` AS `user_modified_at`,`r`.`bot_modified_at` AS `bot_modified_at`,`r`.`created_at` AS `created_at` from `requirements` `r` where (isnull(`r`.`translated`) or (`r`.`translated` = 0)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `projects_get_untranslated`
+--
+
+/*!50001 DROP VIEW IF EXISTS `projects_get_untranslated`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `projects_get_untranslated` AS select `p`.`project_id` AS `project_id`,`p`.`name` AS `name`,`p`.`description` AS `description`,`p`.`size` AS `size`,`p`.`translated` AS `translated`,`p`.`classified` AS `classified`,`p`.`user_modified_at` AS `user_modified_at`,`p`.`bot_modified_at` AS `bot_modified_at`,`p`.`created_at` AS `created_at` from `projects` `p` where (isnull(`p`.`translated`) or (`p`.`translated` = 0)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -274,7 +274,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `requirements_get_all` AS select `r`.`requirement_id` AS `requirement_id`,`r`.`project_id` AS `project_id`,`r`.`title` AS `title`,`r`.`description` AS `description`,`r`.`type` AS `type`,`r`.`rat` AS `rat`,`r`.`language` AS `language`,`r`.`user_modified_at` AS `user_modified_at`,`r`.`bot_modified_at` AS `bot_modified_at`,`r`.`created_at` AS `created_at`,(select count(1) from `tasks` `t` where (`t`.`requirement_id` = `r`.`requirement_id`)) AS `tasks_count`,cast(((select sum(`t`.`percentage_completed`) from `tasks` `t` where (`t`.`requirement_id` = `r`.`requirement_id`)) / (select count(1) from `tasks` `t` where (`t`.`requirement_id` = `r`.`requirement_id`))) as decimal(10,1)) AS `percentage_completed` from `requirements` `r` */;
+/*!50001 VIEW `requirements_get_all` AS select `r`.`requirement_id` AS `requirement_id`,`r`.`project_id` AS `project_id`,`r`.`title` AS `title`,`r`.`description` AS `description`,`r`.`type` AS `type`,`r`.`rat` AS `rat`,`r`.`translated` AS `translated`,`r`.`user_modified_at` AS `user_modified_at`,`r`.`bot_modified_at` AS `bot_modified_at`,`r`.`created_at` AS `created_at`,(select count(1) from `tasks` `t` where (`t`.`requirement_id` = `r`.`requirement_id`)) AS `tasks_count`,cast(((select sum(`t`.`percentage_completed`) from `tasks` `t` where (`t`.`requirement_id` = `r`.`requirement_id`)) / (select count(1) from `tasks` `t` where (`t`.`requirement_id` = `r`.`requirement_id`))) as decimal(10,1)) AS `percentage_completed` from `requirements` `r` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -354,4 +354,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-22  9:51:25
+-- Dump completed on 2019-01-22 12:45:29

@@ -58,8 +58,7 @@ class DbProject:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                q = u"SELECT p.* FROM projects p LEFT JOIN categories c " \
-                    u"ON p.project_id = c.project_id WHERE c.category_id IS NULL;"
+                q = u"SELECT * FROM projects_get_unclassified;"
 
                 cursor.execute(q)
             return cursor.fetchall()
@@ -73,9 +72,7 @@ class DbProject:
         try:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                sql = u"SELECT * FROM `projects` p " \
-                      u" WHERE `language` IS NULL OR `language` <> 'en'" \
-                      u" ORDER BY `project_id` ASC;"
+                sql = u"SELECT * FROM projects_get_untranslated;"
                 cursor.execute(sql)
 
             return cursor.fetchall()
@@ -99,13 +96,14 @@ class DbProject:
             db.close()
 
     @staticmethod
-    def update(name, description, language, project_id):
+    def update(name, description, translated, classified, project_id):
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u" UPDATE `projects` SET `name`=%s, `description`=%s, `language`=%s, `bot_modified_at`=now()" \
+                q = u" UPDATE `projects` SET `name`=%s, `description`=%s, `translated`=%s, " \
+                    u"`classified`=%s, `bot_modified_at`=now()" \
                     u" WHERE `project_id` = %s"
-                cursor.execute(q, (name, description, language, project_id))
+                cursor.execute(q, (name, description, translated, classified, project_id))
                 db.commit()
         finally:
             db.close()

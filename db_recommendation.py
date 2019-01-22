@@ -7,14 +7,14 @@ with open('config/config.json') as json_data_file:
 
 class DbRecommendation:
     @staticmethod
-    def insert(distance, sentence_a, sentence_b, type):
+    def insert(distance, requirement_a_id, requirement_b_id, type):
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"INSERT INTO `recommendations` (`distance`, `sentence_a`, `sentence_b`, `type`, `created_at`)" \
+                q = u"INSERT INTO `recommendations` (`distance`, `requirement_a_id`, `requirement_b_id`, `type`, `created_at`)" \
                     u" VALUES (%s, %s, %s, %s, now());"
 
-                cursor.execute(q, (distance, sentence_a, sentence_b, type))
+                cursor.execute(q, (distance, requirement_a_id, requirement_b_id, type))
                 db.commit()
         except Exception as ex:
             print(ex)
@@ -71,6 +71,20 @@ class DbRecommendation:
             with db.cursor() as cursor:
                 q = u"DELETE FROM `recommendations` WHERE `type`=%s;"
                 cursor.execute(q, (type))
+
+            db.commit()
+        except Exception as ex:
+            print(ex)
+        finally:
+            db.close()
+
+    @staticmethod
+    def delete_by_requirement_id(requirement_id):
+        try:
+            db = pymysql.connect(**config["mysql"])
+            with db.cursor() as cursor:
+                q = u"DELETE FROM `recommendations` WHERE `requirement_a_id`=%s;"
+                cursor.execute(q, (requirement_id))
 
             db.commit()
         except Exception as ex:

@@ -9,14 +9,14 @@ with open(u'config/config.json') as json_data_file:
 
 class DbRequirement:
     @staticmethod
-    def insert(project_id, title, description, type, rat, language):
+    def insert(project_id, title, description, type, rat, translated):
         try:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor() as cursor:
                 q = u"INSERT INTO `requirements` (`project_id`, `title`," \
-                    u" `description`, `type`, `rat`, `language`, `created_at`)" \
+                    u" `description`, `type`, `rat`, `translated`, `created_at`)" \
                     u" VALUES (%s, %s, %s, %s, %s, %s, now());"
-                cursor.execute(q, (project_id, title, description, type, rat, language))
+                cursor.execute(q, (project_id, title, description, type, rat, translated))
 
             db.commit()
         except Exception as ex:
@@ -40,6 +40,20 @@ class DbRequirement:
             db.close()
 
     @staticmethod
+    def get_unprocessed():
+        try:
+            db = pymysql.connect(**config[u"mysql"])
+            with db.cursor(pymysql.cursors.DictCursor) as cursor:
+                sql = u"SELECT * FROM `requirements_get_unprocessed`;"
+                cursor.execute(sql)
+
+            return cursor.fetchall()
+        except Exception as ex:
+            print(ex)
+        finally:
+            db.close()
+
+    @staticmethod
     def get_untranslated():
         try:
             db = pymysql.connect(**config[u"mysql"])
@@ -54,28 +68,15 @@ class DbRequirement:
             db.close()
 
     @staticmethod
-    def get_unrecommended():
-        try:
-            db = pymysql.connect(**config[u"mysql"])
-            with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                sql = u"SELECT 	* FROM requirements_get_unrecommended;"
-                cursor.execute(sql)
-            return cursor.fetchall()
-        except Exception as ex:
-            print(ex)
-        finally:
-            db.close()
-
-    @staticmethod
-    def update(project_id, title, description, type, rat, language, requirement_id):
+    def update(project_id, title, description, type, rat, translated, processed, requirement_id):
         try:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor() as cursor:
                 q = u"UPDATE `requirements` SET " \
                     u"`project_id`=%s, `title`=%s, `description`=%s, `type`=%s, " \
-                    u"`rat`=%s, `language`=%s, `bot_modified_at`=now() " \
+                    u"`rat`=%s, `translated`=%s, `processed`=%s, `bot_modified_at`=now() " \
                     u" WHERE `requirement_id`=%s;"
-                cursor.execute(q, (project_id, title, description, type, rat, language, requirement_id))
+                cursor.execute(q, (project_id, title, description, type, rat, translated, processed, requirement_id))
                 db.commit()
         finally:
             db.close()

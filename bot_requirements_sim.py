@@ -19,54 +19,43 @@ from db_recommendation import DbRecommendation
 
 def execute():
     try:
-        # Translate Requirements
-        requirements = DbRequirement.get_untranslated()
-
-        for requirement in requirements:
-            translated_title = gapi_translate.translate(requirement['title'])
-            translated_description = gapi_translate.translate(requirement['description'])
-            if translated_title is not None and translated_description is not None:
-                DbRequirement.update(requirement['project_id'], translated_title,
-                                     translated_description, requirement['type'],
-                                     requirement['rat'], "en", requirement['requirement_id'])
+        logging.basicConfig(format=u'%(asctime)s : %(levelname)s : %(message)s')
+        dir = os.path.dirname(__file__)
+        download(u'stopwords', quiet=True)
+        stop_words = set(stopwords.words(u'english'))
+        file = u'/data/GoogleNews-vectors-negative300.bin.gz'
 
 
         # Instantiate Word Mover's Distance
-        logging.basicConfig(format=u'%(asctime)s : %(levelname)s : %(message)s')
-        dir = os.path.dirname(__file__)
-        download(u'stopwords')
-        stop_words = set(stopwords.words(u'english'))
-        file = u'/data/GoogleNews-vectors-negative300.bin.gz'
-        model = gensim.models.KeyedVectors.load_word2vec_format(dir + file, binary=True)
+        model = gensim.models.KeyedVectors.load_word2vec_format(dir + file, binary=True, limit=500000) #limit=500000
         model.init_sims(replace=True)
 
 
         # Get Not Recommended Requirements
-        list_of_sentences = []
-        requirements = DbRequirement.get_unrecommended()
+        unprocessed_reqs = DbRequirement.get_unprocessed()
+        all_requirements = DbRequirement.get_all()
 
-        for requirement in requirements:
-            list_of_sentences.append(requirement['description'])
-
-        for requirement in requirements:
-            print(u'Requirement {} processing'.format(requirement['requirement_id']))
-
-            sentence_to_compare = requirement['description']
-            orig_sentence_to_compare = sentence_to_compare
-            sentence_to_compare = sentence_to_compare.lower().split()
+        for unprocessed_req in unprocessed_reqs:
+            sentence_to_compare = unprocessed_req['description'].lower().split()
             sentence_to_compare = [w for w in sentence_to_compare if w not in stop_words]
+            DbRecommendation.delete_by_requirement_id(unprocessed_req['requirement_id'])
 
             if not os.path.exists(dir + file):
                 raise ValueError(u"SKIP: You need to download the google news model")
 
-            for sentence in list_of_sentences:
-                orig_sentence = sentence;
-                sentence = sentence.lower().split()
+            for requirement in all_requirements:
+                sentence = requirement['description'].lower().split()
                 sentence = [w for w in sentence if w not in stop_words]
                 distance = model.wmdistance(sentence_to_compare, sentence)
 
-                print(orig_sentence_to_compare, distance)
-                #if distance < 1 and distance > 0:
-                    #DbRecommendation.insert(distance, orig_sentence_to_compare, orig_sentence, "NEW_REQUIREMENTS")
+                if distance > 0 and distance < 1:
+                    DbRecommendation.insert(distance, unprocessed_req['requirement_id'],
+                                            requirement['requirement_id'], "NEW_REQUIREMENT")
+
+            DbRequirement.update(unprocessed_req['project_id'], unprocessed_req['title'], unprocessed_req['description'],
+                                 unprocessed_req['type'], unprocessed_req['rat'], unprocessed_req['translated'], 1,
+                                 unprocessed_req['requirement_id'])
+
+            print(u'REQ {} processed from an total of {}'.format(unprocessed_req['requirement_id'], len(unprocessed_reqs)))
     except Exception as ex:
         print(ex)
