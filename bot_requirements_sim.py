@@ -27,7 +27,7 @@ def execute():
 
 
         # Instantiate Word Mover's Distance
-        model = gensim.models.KeyedVectors.load_word2vec_format(dir + file, binary=True, limit=500000) #limit=500000
+        model = gensim.models.KeyedVectors.load_word2vec_format(dir + file, binary=True) #limit=500000
         model.init_sims(replace=True)
 
 
