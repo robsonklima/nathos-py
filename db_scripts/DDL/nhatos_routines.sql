@@ -171,7 +171,8 @@ SET character_set_client = utf8;
  1 AS `tasks_count`,
  1 AS `percentage_completed`,
  1 AS `size`,
- 1 AS `methodology`*/;
+ 1 AS `methodology`,
+ 1 AS `recommendations_count`*/;
 SET character_set_client = @saved_cs_client;
 
 --
@@ -183,6 +184,7 @@ DROP TABLE IF EXISTS `recommendations_get_all`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE VIEW `recommendations_get_all` AS SELECT 
+ 1 AS `recommendation_id`,
  1 AS `requirement_a_id`,
  1 AS `project_a_id`,
  1 AS `project_a_name`,
@@ -335,7 +337,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `projects_get_all` AS select `p`.`project_id` AS `project_id`,`p`.`name` AS `name`,`p`.`description` AS `description`,`p`.`translated` AS `translated`,`p`.`classified` AS `classified`,`p`.`user_modified_at` AS `user_modified_at`,`p`.`bot_modified_at` AS `bot_modified_at`,`p`.`created_at` AS `created_at`,(select count(1) from `categories` where (`categories`.`project_id` = `p`.`project_id`)) AS `categories_count`,(select count(1) from `requirements` where (`requirements`.`project_id` = `p`.`project_id`)) AS `requirements_count`,(select count(1) from `tasks` `t` where `t`.`requirement_id` in (select `requirements`.`requirement_id` from `requirements` where (`requirements`.`project_id` = `p`.`project_id`))) AS `tasks_count`,cast(((select sum(`t`.`percentage_completed`) from `tasks` `t` where `t`.`requirement_id` in (select `requirements`.`requirement_id` from `requirements` where (`requirements`.`project_id` = `p`.`project_id`))) / (select count(1) from `tasks` `t` where `t`.`requirement_id` in (select `requirements`.`requirement_id` from `requirements` where (`requirements`.`project_id` = `p`.`project_id`)))) as decimal(10,1)) AS `percentage_completed`,`p`.`size` AS `size`,`p`.`methodology` AS `methodology` from `projects` `p` */;
+/*!50001 VIEW `projects_get_all` AS select `p`.`project_id` AS `project_id`,`p`.`name` AS `name`,`p`.`description` AS `description`,`p`.`translated` AS `translated`,`p`.`classified` AS `classified`,`p`.`user_modified_at` AS `user_modified_at`,`p`.`bot_modified_at` AS `bot_modified_at`,`p`.`created_at` AS `created_at`,(select count(1) from `categories` where (`categories`.`project_id` = `p`.`project_id`)) AS `categories_count`,(select count(1) from `requirements` where (`requirements`.`project_id` = `p`.`project_id`)) AS `requirements_count`,(select count(1) from `tasks` `t` where `t`.`requirement_id` in (select `requirements`.`requirement_id` from `requirements` where (`requirements`.`project_id` = `p`.`project_id`))) AS `tasks_count`,cast(((select sum(`t`.`percentage_completed`) from `tasks` `t` where `t`.`requirement_id` in (select `requirements`.`requirement_id` from `requirements` where (`requirements`.`project_id` = `p`.`project_id`))) / (select count(1) from `tasks` `t` where `t`.`requirement_id` in (select `requirements`.`requirement_id` from `requirements` where (`requirements`.`project_id` = `p`.`project_id`)))) as decimal(10,1)) AS `percentage_completed`,`p`.`size` AS `size`,`p`.`methodology` AS `methodology`,(select count(1) from `recommendations_get_all` `rec` where (`rec`.`project_a_id` = `p`.`project_id`)) AS `recommendations_count` from `projects` `p` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -353,7 +355,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `recommendations_get_all` AS select `req_a`.`requirement_id` AS `requirement_a_id`,`proj_a`.`project_id` AS `project_a_id`,`proj_a`.`name` AS `project_a_name`,substr(`req_a`.`description`,1,150) AS `requirement_a_description`,`req_b`.`requirement_id` AS `requirement_b_id`,`proj_b`.`project_id` AS `project_b_id`,`proj_b`.`name` AS `project_b_name`,substr(`req_b`.`description`,1,150) AS `Requirement_b_description`,cast(`rec`.`distance` as decimal(4,3)) AS `distance`,`rec`.`created_at` AS `created_at`,(to_days(now()) - to_days(`rec`.`created_at`)) AS `created_at_days` from ((((`recommendations` `rec` left join `requirements` `req_a` on((`req_a`.`requirement_id` = `rec`.`requirement_a_id`))) left join `requirements` `req_b` on((`req_b`.`requirement_id` = `rec`.`requirement_b_id`))) left join `projects` `proj_a` on((`req_a`.`project_id` = `proj_a`.`project_id`))) left join `projects` `proj_b` on((`req_b`.`project_id` = `proj_b`.`project_id`))) where ((1 = 1) and (`proj_a`.`project_id` <> `proj_b`.`project_id`)) */;
+/*!50001 VIEW `recommendations_get_all` AS select `rec`.`recommendation_id` AS `recommendation_id`,`req_a`.`requirement_id` AS `requirement_a_id`,`proj_a`.`project_id` AS `project_a_id`,`proj_a`.`name` AS `project_a_name`,substr(`req_a`.`description`,1,150) AS `requirement_a_description`,`req_b`.`requirement_id` AS `requirement_b_id`,`proj_b`.`project_id` AS `project_b_id`,`proj_b`.`name` AS `project_b_name`,substr(`req_b`.`description`,1,150) AS `Requirement_b_description`,cast(`rec`.`distance` as decimal(4,3)) AS `distance`,`rec`.`created_at` AS `created_at`,(to_days(now()) - to_days(`rec`.`created_at`)) AS `created_at_days` from (((((`recommendations` `rec` left join `requirements` `req_a` on((`req_a`.`requirement_id` = `rec`.`requirement_a_id`))) left join `requirements` `req_b` on((`req_b`.`requirement_id` = `rec`.`requirement_b_id`))) left join `projects` `proj_a` on((`req_a`.`project_id` = `proj_a`.`project_id`))) left join `projects` `proj_b` on((`req_b`.`project_id` = `proj_b`.`project_id`))) left join `requirements_recommendations` `req_rec` on((`req_rec`.`recommendation_id` = `rec`.`recommendation_id`))) where ((1 = 1) and (`rec`.`distance` < 0.9) and (`proj_a`.`project_id` <> `proj_b`.`project_id`) and isnull(`req_rec`.`requirement_recommendation_id`) and (not(`rec`.`requirement_b_id` in (select `recommendations`.`requirement_b_id` from `recommendations` where `recommendations`.`recommendation_id` in (select `requirements_recommendations`.`recommendation_id` from `requirements_recommendations` where (`requirements_recommendations`.`project_id` = `proj_a`.`project_id`)))))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -433,4 +435,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-22 16:28:07
+-- Dump completed on 2019-01-23 11:28:42
