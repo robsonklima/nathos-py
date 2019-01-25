@@ -14,6 +14,6 @@ def execute():
             if translated_name is not None and translated_description is not None:
                 DbProject.update(translated_name, translated_description, 1, project['classified'], project['project_id'])
 
-        print(u'Projects Translated: {}'.format(len(projects)))
+        print(u'{} Projects Translated'.format(len(projects)))
     except Exception as ex:
         print(ex)

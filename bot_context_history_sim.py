@@ -1,6 +1,4 @@
 
 
 def execute():
-
-    # to do
-    a = 1
+    print(u'{} Context History'.format(0))

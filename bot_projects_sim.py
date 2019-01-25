@@ -23,6 +23,6 @@ def execute():
 
             DbProject.update(project['name'], project['description'], project['translated'], 1, project['project_id'])
 
-        print(u'Projects Classified: {}'.format(len(projects)))
+        print(u'{} Projects Classified'.format(len(projects)))
     except Exception as ex:
         print(ex)

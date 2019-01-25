@@ -30,6 +30,6 @@ def execute():
                                      requirement['type'], requirement['rat'], 1, requirement['processed'],
                                      requirement['requirement_id'])
 
-        print(u'Requirements Translated: {}'.format(len(requirements)))
+        print(u'{} Requirements Translated'.format(len(requirements)))
     except Exception as ex:
         print(ex)
