@@ -11,6 +11,7 @@ def execute():
         for project in projects:
             translated_name = gapi_translate.translate(project['name'])
             translated_description = gapi_translate.translate(project['description'])
+
             if translated_name is not None and translated_description is not None:
                 DbProject.update(translated_name, translated_description, 1, project['classified'], project['project_id'])
 

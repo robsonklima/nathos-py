@@ -11,8 +11,8 @@ class DbCategory:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"INSERT INTO `categories` (`project_id`, `title`, `confidence`) " \
-                    u"VALUES (%s, %s, %s)"
+                q = u"INSERT INTO `categories` (`project_id`, `title`, `confidence`, `created_at`) " \
+                    u"VALUES (%s, %s, %s, now())"
                 cursor.execute(q, (project_id, title, confidence))
 
             db.commit()

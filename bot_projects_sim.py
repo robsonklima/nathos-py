@@ -10,7 +10,6 @@ def execute():
 
         for project in projects:
             DbCategory.delete_by_project_id(project['project_id'])
-
             categories = gapi_classify.classify_text(project['description'])
 
             if categories:
