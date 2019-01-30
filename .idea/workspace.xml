@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50ced62a-b45a-4de6-8387-30b51a52e2cd" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/db_scripts/DQL_DML/projects_recommendations_count.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_projects_sim.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_projects_sim.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_projects_translate.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_projects_translate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot_recommendation_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_recommendation_engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_category.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_category.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DQL_DML/~$insert_requirements_lot.xlsx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,8 +18,8 @@
       <file leaf-file-name="bot_recommendation_engine.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot_recommendation_engine.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+            <state relative-caret-position="300">
+              <caret line="30" column="17" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -147,11 +144,11 @@
         <option value="$PROJECT_DIR$/db_requirement.py" />
         <option value="$PROJECT_DIR$/bot_requirements_translate.py" />
         <option value="$PROJECT_DIR$/bot_context_history_sim.py" />
-        <option value="$PROJECT_DIR$/bot_requirements_sim.py" />
         <option value="$PROJECT_DIR$/bot_context_history_storage.py" />
         <option value="$PROJECT_DIR$/db_category.py" />
         <option value="$PROJECT_DIR$/bot_projects_sim.py" />
         <option value="$PROJECT_DIR$/bot_projects_translate.py" />
+        <option value="$PROJECT_DIR$/bot_requirements_sim.py" />
         <option value="$PROJECT_DIR$/bot_recommendation_engine.py" />
       </list>
     </option>
@@ -505,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548421044050</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="REF">
+      <created>1548764395223</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1548764395224</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -521,10 +525,10 @@
     <frame x="0" y="23" width="1280" height="729" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4976415" visible="true" weight="0.22160445" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976415" visible="true" weight="0.22160445" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32911393" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.50119144" side_tool="true" weight="0.318038" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49960285" visible="true" weight="0.3370253" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49960285" weight="0.3370253" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.32911393" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32911393" />
       <window_info id="Structure" order="1" sideWeight="0.5023585" side_tool="true" weight="0.22160445" />
@@ -560,13 +564,13 @@
     <MESSAGE value="REF UPDATE" />
     <MESSAGE value="Atualizadas colunas language&#10;Corrido bug que quando ocorria falha na conexao com a API do Google para traducão salvava vazio no banco." />
     <MESSAGE value="organizada pasta db_scripts e realizado backup do banco de dados" />
-    <MESSAGE value="REF" />
     <MESSAGE value="Adicionado metodo em requirements para obter requisitos não recomendados;" />
     <MESSAGE value="Adicionados novos scripts de banco de dados;" />
     <MESSAGE value="Diversas correcões em recomendacoes e projetos;" />
     <MESSAGE value="Atualizacao scripts de backup do banco de dados" />
     <MESSAGE value="Inserido servico de execucao por intervalo de tempo (scheduler)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inserido servico de execucao por intervalo de tempo (scheduler)" />
+    <MESSAGE value="REF" />
+    <option name="LAST_COMMIT_MESSAGE" value="REF" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -858,13 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bot_requirements_sim.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db_requirement.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
@@ -887,10 +884,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bot_requirements_sim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bot_recommendation_engine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+        <state relative-caret-position="300">
+          <caret line="30" column="17" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="17" />
         </state>
       </provider>
     </entry>
