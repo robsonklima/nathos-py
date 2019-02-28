@@ -30,4 +30,4 @@ scheduler = Scheduler()
 scheduler.daemonic = False
 scheduler.start()
 
-scheduler.add_cron_job(execute_schedule, minute='*/6')
+scheduler.add_cron_job(execute_schedule, minute='*/1')

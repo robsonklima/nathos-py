@@ -40,6 +40,23 @@ class DbRequirement:
             db.close()
 
     @staticmethod
+    def get_by_project_id(project_id):
+        try:
+            db = pymysql.connect(**config[u"mysql"])
+            with db.cursor(pymysql.cursors.DictCursor) as cursor:
+                sql = u"SELECT   * " \
+                      u"FROM     `requirements` " \
+                      u"WHERE    `project_id` = %s " \
+                      u"ORDER BY `requirement_id` ASC;"
+
+                cursor.execute(sql, (project_id))
+            return cursor.fetchall()
+        except Exception as ex:
+            print(ex)
+        finally:
+            db.close()
+
+    @staticmethod
     def get_unprocessed():
         try:
             db = pymysql.connect(**config[u"mysql"])
