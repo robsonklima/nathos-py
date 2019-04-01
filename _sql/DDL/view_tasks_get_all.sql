@@ -1,0 +1,1 @@
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tasks_get_all` AS select `tasks`.`task_id` AS `task_id`,`tasks`.`name` AS `name`,`tasks`.`requirement_id` AS `requirement_id`,cast(`tasks`.`percentage_completed` as decimal(10,2)) AS `percentage_completed` from `tasks`;

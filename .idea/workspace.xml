@@ -2,39 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50ced62a-b45a-4de6-8387-30b51a52e2cd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/nhatos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nhatos.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_sql/DDL/function_cursor_insert_risks.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_sql/DDL/function_cursor_insert_tasks.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_categories_get_all.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_projects_get_all.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_projects_get_unclassified.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_projects_get_untranslated.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_recommendations_get_all.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_requirements_get_all.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_requirements_get_unprocessed.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_requirements_get_untranslated.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_risks_get_unprocessed.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_tasks_get_all.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_context_history_storage.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot_context_history_storage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot_search.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_risk.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_categories.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_categories0.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_commits.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_projects.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_projects0.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_recommendations.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_recommendations0.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_repos.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_requirements.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_requirements0.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_requirements_recommendations.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_requirements_recommendations0.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_routines.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_routines0.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_tasks.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DDL/nhatos_tasks0.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DQL_DML/commits.sql" beforeDir="false" afterPath="$PROJECT_DIR$/_sql/DML/commits.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DQL_DML/cursor_insert_tasks_call.sql" beforeDir="false" afterPath="$PROJECT_DIR$/_sql/DML/cursor_insert_tasks_call.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DQL_DML/insert_requirements_lot.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/_sql/DML/insert_requirements_lot.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DQL_DML/projects_recommendations_count.sql" beforeDir="false" afterPath="$PROJECT_DIR$/_sql/DML/projects_recommendations_count.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DQL_DML/projects_without_requirements.sql" beforeDir="false" afterPath="$PROJECT_DIR$/_sql/DML/projects_without_requirements.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DQL_DML/query_ref_projects_get_all.sql" beforeDir="false" afterPath="$PROJECT_DIR$/_sql/DML/query_ref_projects_get_all.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DQL_DML/recommendations.sql" beforeDir="false" afterPath="$PROJECT_DIR$/_sql/DML/recommendations.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DQL_DML/recommendations_percent.sql" beforeDir="false" afterPath="$PROJECT_DIR$/_sql/DML/recommendations_percent.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DQL_DML/repos.sql" beforeDir="false" afterPath="$PROJECT_DIR$/_sql/DML/repos.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_scripts/DQL_DML/tmp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/_sql/DML/tmp.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_tmp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,17 +25,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="bot_recommendation_engine.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bot_recommendation_engine.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -105,27 +76,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/_test.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/db_project.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/gapi_sentiment.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/gapi_translate.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/git_commits_extractor.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/db_requirement.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/gapi_entities.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/db_commit.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/db_repo.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/bot_context_history_sim.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/bot_projects_translate.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/bot_context_history_storage.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/bot_requirements_sim.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/gapi_classify.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/db_recommendation.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/gapi_syntax.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/db_category.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/config/config.json" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/bot_recommendation_engine.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/git_repos_extractor.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/bot_requirements_sim.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/bot_projects_sim.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/db_category.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/db_project.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/db_requirement.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/bot_recommendation_engine.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/gapi_entities.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/bot_context_history_storage.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/config/config.json" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/_test.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/gapi_sentiment.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/gapi_syntax.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/gapi_classify.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/bot_projects_translate.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/gapi_translate.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/bot_requirements_translate.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
@@ -139,7 +107,6 @@
         <option value="$PROJECT_DIR$/git_commit.py" />
         <option value="$PROJECT_DIR$/git_test.py" />
         <option value="$PROJECT_DIR$/db_config.json" />
-        <option value="$PROJECT_DIR$/config/config.json" />
         <option value="$PROJECT_DIR$/git_repos_scheduler.py" />
         <option value="$PROJECT_DIR$/git_commits_scheduler.py" />
         <option value="$PROJECT_DIR$/fb_tmp.py" />
@@ -182,6 +149,7 @@
         <option value="$PROJECT_DIR$/bot_context_history_storage.py" />
         <option value="$PROJECT_DIR$/_test.py" />
         <option value="$PROJECT_DIR$/bot_recommendation_engine.py" />
+        <option value="$PROJECT_DIR$/config/config.json" />
       </list>
     </option>
   </component>
@@ -202,8 +170,24 @@
         <subPane>
           <expand>
             <path>
-              <item name="nhatos-py" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nhatos-py" type="462c0819:PsiDirectoryNode" />
+              <item name="nhatos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nhatos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nhatos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nhatos" type="462c0819:PsiDirectoryNode" />
+              <item name="_sql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nhatos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nhatos" type="462c0819:PsiDirectoryNode" />
+              <item name="_sql" type="462c0819:PsiDirectoryNode" />
+              <item name="DDL" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nhatos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nhatos" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -563,14 +547,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1920" height="1009" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976415" visible="true" weight="0.22108346" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976415" visible="true" weight="0.22116904" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32911393" />
-      <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5014641" side_tool="true" weight="0.33603895" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32954547" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49853587" weight="0.33603895" />
+      <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.50119144" side_tool="true" weight="0.318038" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49960285" weight="0.3370253" />
       <window_info anchor="bottom" id="Version Control" order="1" weight="0.32911393" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32911393" />
       <window_info id="Structure" order="1" sideWeight="0.5023585" side_tool="true" weight="0.22160445" />
@@ -578,11 +560,22 @@
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.4988086" weight="0.39873418" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49853587" weight="0.33603895" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4976415" visible="true" weight="0.22108346" />
+      <window_info id="Structure" order="1" sideWeight="0.5023585" side_tool="true" weight="0.22160445" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="10" weight="0.32911393" />
+      <window_info anchor="bottom" id="Version Control" order="1" weight="0.32911393" />
+      <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.4988086" weight="0.39873418" />
       <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5014641" side_tool="true" weight="0.33603895" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32954547" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.32911393" />
+      <window_info anchor="bottom" id="Python Console" order="2" weight="0.32911393" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -637,7 +630,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backup/bot_requirements_sim_01.py" />
     <entry file="file://$PROJECT_DIR$/backup/bot_requirements_sim_02.py" />
     <entry file="file://$PROJECT_DIR$/backup/bot_recommendation_engine_01.py" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/pkg_resources/extern/__init__.py" />
@@ -648,32 +640,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/git_repos_extractor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/git_repos_extractor.py" />
     <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2018.1/python_stubs/2120410021/__builtin__.py" />
     <entry file="file://$PROJECT_DIR$/db_scripts/recommendations.sql" />
     <entry file="file://$PROJECT_DIR$/_sql/DML/recommendations.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/_sql/DML/tmp.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_sql/DML/repos.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/_sql/DML/tmp.sql" />
+    <entry file="file://$PROJECT_DIR$/_sql/DML/repos.sql" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/pymysql/__init__.py" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/pymysql/connections.py" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/pymysql/cursors.py" />
@@ -684,34 +658,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_scripts/DDL/nhatos_routines.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="186" column="137" selection-start-line="186" selection-start-column="137" selection-end-line="186" selection-end-column="137" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db_scripts/DDL/nhatos_repos.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db_scripts/DDL/nhatos_requirements.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="47" column="11245" selection-start-line="47" selection-start-column="11239" selection-end-line="47" selection-end-column="11245" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db_repo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/db_scripts/DDL/nhatos_routines.sql" />
+    <entry file="file://$PROJECT_DIR$/db_scripts/DDL/nhatos_repos.sql" />
+    <entry file="file://$PROJECT_DIR$/db_scripts/DDL/nhatos_requirements.sql" />
+    <entry file="file://$PROJECT_DIR$/db_repo.py" />
     <entry file="file://$PROJECT_DIR$/db_recommendation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -720,13 +670,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/gensim/models/keyedvectors.py" />
-    <entry file="file://$PROJECT_DIR$/bot_search.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/bot_search.py" />
     <entry file="file://$PROJECT_DIR$/screen_shots/requirement_tasks.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -755,13 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_projects_translate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -777,13 +714,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data.json" />
-    <entry file="file://$PROJECT_DIR$/db_risk.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/db_risk.py" />
     <entry file="file://$PROJECT_DIR$/db_task.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -885,9 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="58" selection-start-line="58" selection-end-line="58" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -925,17 +853,21 @@
     <entry file="file://$PROJECT_DIR$/_test.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_tmp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/db_tmp.py" />
+    <entry file="file://$PROJECT_DIR$/projects_risks.sql">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/bot_recommendation_engine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
+        <state relative-caret-position="105">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
         </state>
       </provider>
     </entry>
