@@ -26,8 +26,7 @@ CREATE TABLE `settings` (
   `only_projects_same_size` int(1) DEFAULT NULL,
   `only_projects_same_methodology` int(1) DEFAULT NULL,
   `distance_accepted_between_requirements` float DEFAULT NULL,
-  `difference_accepted_between_projects_percentage` float DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL
+  `difference_accepted_between_projects_percentage` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -37,7 +36,7 @@ CREATE TABLE `settings` (
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES (0,0,112,0,'2019-02-15 13:07:13'),(1,1,112,49,'2019-02-15 13:10:19'),(1,1,25,49,'2019-02-15 13:10:23'),(1,1,63,24,'2019-02-15 13:11:56'),(0,1,92,35,'2019-02-15 13:12:11'),(0,1,92,35,'2019-02-15 13:12:50'),(0,1,148,18,'2019-02-15 13:13:53');
+INSERT INTO `settings` VALUES (0,0,112,0),(1,1,112,49),(1,1,25,49),(1,1,63,24),(0,1,92,35),(0,1,92,35),(0,1,148,18);
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-31 16:50:07
+-- Dump completed on 2019-04-01 19:43:54

@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="50ced62a-b45a-4de6-8387-30b51a52e2cd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/_sql/DDL/function_cursor_insert_risks.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_sql/DDL/function_cursor_insert_tasks.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_categories_get_all.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_projects_get_all.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_projects_get_unclassified.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_projects_get_untranslated.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_recommendations_get_all.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_requirements_get_all.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_requirements_get_unprocessed.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_requirements_get_untranslated.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_risks_get_unprocessed.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_sql/DDL/view_tasks_get_all.sql" afterDir="false" />
+    <list default="true" id="50ced62a-b45a-4de6-8387-30b51a52e2cd" name="Default" comment="Removidas datas de criacao e edicao do banco de dados">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,9 +23,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>get_categories_by_project</find>
-      <find>delete_all_categories</find>
-      <find>insert_category</find>
       <find>get_by_project</find>
       <find>category[2]</find>
       <find>get_all_requirements</find>
@@ -54,7 +38,6 @@
       <find>insert_tmp</find>
       <find>lang</find>
       <find>get</find>
-      <find>update</find>
       <find>DbProject.update</find>
       <find>langua</find>
       <find>language</find>
@@ -66,6 +49,10 @@
       <find>db_risk</find>
       <find>DbRisk</find>
       <find>bot_search</find>
+      <find>, `created_at`</find>
+      <find>updated</find>
+      <find>modif</find>
+      <find>update</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -76,7 +63,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/db_commit.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/bot_context_history_sim.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/db_recommendation.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/bot_requirements_sim.py" root0="SKIP_INSPECTION" />
@@ -126,7 +112,6 @@
         <option value="$PROJECT_DIR$/bot_projects_similarity.py" />
         <option value="$PROJECT_DIR$/bot_context_similarity.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/db_commit.py" />
         <option value="$PROJECT_DIR$/git_commits_extractor.py" />
         <option value="$PROJECT_DIR$/git_repos_extractor.py" />
         <option value="$PROJECT_DIR$/db_tmp.py" />
@@ -135,28 +120,29 @@
         <option value="$PROJECT_DIR$/db_repo.py" />
         <option value="$PROJECT_DIR$/gapi_translate.py" />
         <option value="$PROJECT_DIR$/gapi_classify.py" />
-        <option value="$PROJECT_DIR$/db_project.py" />
-        <option value="$PROJECT_DIR$/db_recommendation.py" />
         <option value="$PROJECT_DIR$/bot_requirements_translate.py" />
         <option value="$PROJECT_DIR$/bot_context_history_sim.py" />
-        <option value="$PROJECT_DIR$/db_category.py" />
         <option value="$PROJECT_DIR$/bot_projects_sim.py" />
         <option value="$PROJECT_DIR$/bot_projects_translate.py" />
         <option value="$PROJECT_DIR$/bot_requirements_sim.py" />
-        <option value="$PROJECT_DIR$/db_requirement.py" />
         <option value="$PROJECT_DIR$/db_risk.py" />
         <option value="$PROJECT_DIR$/db_task.py" />
         <option value="$PROJECT_DIR$/bot_context_history_storage.py" />
         <option value="$PROJECT_DIR$/_test.py" />
         <option value="$PROJECT_DIR$/bot_recommendation_engine.py" />
         <option value="$PROJECT_DIR$/config/config.json" />
+        <option value="$PROJECT_DIR$/db_category.py" />
+        <option value="$PROJECT_DIR$/db_commit.py" />
+        <option value="$PROJECT_DIR$/db_project.py" />
+        <option value="$PROJECT_DIR$/db_recommendation.py" />
+        <option value="$PROJECT_DIR$/db_requirement.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1280" />
-    <option name="height" value="729" />
+    <option name="width" value="1920" />
+    <option name="height" value="1009" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -172,22 +158,6 @@
             <path>
               <item name="nhatos" type="b2602c69:ProjectViewProjectNode" />
               <item name="nhatos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nhatos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nhatos" type="462c0819:PsiDirectoryNode" />
-              <item name="_sql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nhatos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nhatos" type="462c0819:PsiDirectoryNode" />
-              <item name="_sql" type="462c0819:PsiDirectoryNode" />
-              <item name="DDL" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="nhatos" type="b2602c69:ProjectViewProjectNode" />
-              <item name="nhatos" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -534,7 +504,21 @@
       <option name="project" value="LOCAL" />
       <updated>1548853252903</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="db_routines">
+      <created>1554157185314</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1554157185314</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Removidas datas de criacao e edicao do banco de dados">
+      <created>1554157485342</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1554157485342</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -604,7 +588,9 @@
     <MESSAGE value="Atualizacao scripts de backup do banco de dados" />
     <MESSAGE value="Inserido servico de execucao por intervalo de tempo (scheduler)" />
     <MESSAGE value="REF" />
-    <option name="LAST_COMMIT_MESSAGE" value="REF" />
+    <MESSAGE value="db_routines" />
+    <MESSAGE value="Removidas datas de criacao e edicao do banco de dados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removidas datas de criacao e edicao do banco de dados" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -651,24 +637,10 @@
     <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/pymysql/__init__.py" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/pymysql/connections.py" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/pymysql/cursors.py" />
-    <entry file="file://$PROJECT_DIR$/gapi_classify.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="7" column="37" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db_scripts/DDL/nhatos_routines.sql" />
     <entry file="file://$PROJECT_DIR$/db_scripts/DDL/nhatos_repos.sql" />
     <entry file="file://$PROJECT_DIR$/db_scripts/DDL/nhatos_requirements.sql" />
     <entry file="file://$PROJECT_DIR$/db_repo.py" />
-    <entry file="file://$PROJECT_DIR$/db_recommendation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/gensim/models/keyedvectors.py" />
     <entry file="file://$PROJECT_DIR$/bot_search.py" />
     <entry file="file://$PROJECT_DIR$/screen_shots/requirement_tasks.png">
@@ -689,16 +661,6 @@
     <entry file="file://$PROJECT_DIR$/screen_shots/categories.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/db_commit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_projects_translate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -715,13 +677,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data.json" />
     <entry file="file://$PROJECT_DIR$/db_risk.py" />
-    <entry file="file://$PROJECT_DIR$/db_task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bot_context_history_sim.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -733,68 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db_category.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding>
-            <element signature="e#211#646#0" />
-            <element signature="e#228#552#0" />
-            <element signature="e#324#527#0" />
-            <element signature="e#328#460#0" />
-            <element signature="e#693#1051#0" />
-            <element signature="e#710#957#0" />
-            <element signature="e#832#920#0" />
-            <element signature="e#1118#1493#0" />
-            <element signature="e#1135#1399#0" />
-            <element signature="e#1257#1362#0" />
-            <element signature="e#1556#1894#0" />
-            <element signature="e#1573#1800#0" />
-            <element signature="e#1669#1775#0" />
-            <element signature="e#1964#2300#0" />
-            <element signature="e#1981#2206#0" />
-            <element signature="e#2077#2181#0" />
-            <element signature="e#2350#2648#0" />
-            <element signature="e#2367#2554#0" />
-            <element signature="e#2463#2529#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db_requirement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="49" column="50" selection-start-line="49" selection-start-column="50" selection-end-line="49" selection-end-column="50" />
-          <folding>
-            <element signature="e#267#798#0" />
-            <element signature="e#284#704#0" />
-            <element signature="e#381#679#0" />
-            <element signature="e#385#588#0" />
-            <element signature="e#845#1249#0" />
-            <element signature="e#862#1155#0" />
-            <element signature="e#985#1117#0" />
-            <element signature="e#991#1081#0" />
-            <element signature="e#1304#1666#0" />
-            <element signature="e#1321#1572#0" />
-            <element signature="e#1444#1534#0" />
-            <element signature="e#1722#2083#0" />
-            <element signature="e#1739#1989#0" />
-            <element signature="e#1862#1951#0" />
-            <element signature="e#2209#2772#0" />
-            <element signature="e#2226#2732#0" />
-            <element signature="e#2323#2732#0" />
-            <element signature="e#2327#2586#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db_project.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -868,6 +761,58 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_category.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_commit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="53" lean-forward="true" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_project.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="685">
+          <caret line="102" column="49" selection-start-line="102" selection-start-column="49" selection-end-line="102" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_requirement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="96" column="27" lean-forward="true" selection-start-line="96" selection-start-column="27" selection-end-line="96" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gapi_classify.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="7" column="37" lean-forward="true" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db_recommendation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>

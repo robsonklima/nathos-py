@@ -29,8 +29,8 @@ BEGIN
       LEAVE loop_label;
     END IF;
     
-    INSERT INTO  risks (description, project_id, created_at) 
-    VALUES 			 (risk, (select project_id from projects ORDER BY RAND() LIMIT 1), now());
+    INSERT INTO  risks (description, project_id) 
+    VALUES 			 (risk, (select project_id from projects ORDER BY RAND() LIMIT 1));
     SET x = x - 1;
     ITERATE loop_label;
   END LOOP;

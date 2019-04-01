@@ -27,7 +27,6 @@ CREATE TABLE `requirements_recommendations` (
   `project_id` int(11) DEFAULT NULL,
   `recommendation_id` int(11) DEFAULT NULL,
   `accepted` int(1) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`requirement_recommendation_id`),
   KEY `fk_requirements_recommendations_project_id_idx` (`project_id`),
   KEY `fk_requirements_recommendations_recommendation_id_idx` (`recommendation_id`),
@@ -42,7 +41,7 @@ CREATE TABLE `requirements_recommendations` (
 
 LOCK TABLES `requirements_recommendations` WRITE;
 /*!40000 ALTER TABLE `requirements_recommendations` DISABLE KEYS */;
-INSERT INTO `requirements_recommendations` VALUES (1,206,52433,1,'2019-02-01 17:41:07');
+INSERT INTO `requirements_recommendations` VALUES (1,206,52433,1);
 /*!40000 ALTER TABLE `requirements_recommendations` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-31 16:50:07
+-- Dump completed on 2019-04-01 19:43:53
