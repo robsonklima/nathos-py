@@ -11,8 +11,8 @@ class DbRecommendation:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"INSERT INTO `recommendations` (`distance`, `requirement_a_id`, `requirement_b_id`, `type`, `created_at`)" \
-                    u" VALUES (%s, %s, %s, %s, now());"
+                q = u"INSERT INTO `recommendations` (`distance`, `requirement_a_id`, `requirement_b_id`, `type`)" \
+                    u" VALUES (%s, %s, %s, %s);"
 
                 cursor.execute(q, (distance, requirement_a_id, requirement_b_id, type))
                 db.commit()

@@ -101,7 +101,7 @@ class DbProject:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
                 q = u" UPDATE `projects` SET `name`=%s, `description`=%s, `translated`=%s, " \
-                    u"`classified`=%s, `bot_modified_at`=now()" \
+                    u"`classified`=%s" \
                     u" WHERE `project_id` = %s"
                 cursor.execute(q, (name, description, translated, classified, project_id))
                 db.commit()

@@ -14,8 +14,8 @@ class DbRequirement:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor() as cursor:
                 q = u"INSERT INTO `requirements` (`project_id`, `title`," \
-                    u" `description`, `type`, `rat`, `translated`, `created_at`)" \
-                    u" VALUES (%s, %s, %s, %s, %s, %s, now());"
+                    u" `description`, `type`, `rat`, `translated`)" \
+                    u" VALUES (%s, %s, %s, %s, %s, %s);"
                 cursor.execute(q, (project_id, title, description, type, rat, translated))
 
             db.commit()
@@ -91,7 +91,7 @@ class DbRequirement:
             with db.cursor() as cursor:
                 q = u"UPDATE `requirements` SET " \
                     u"`project_id`=%s, `title`=%s, `description`=%s, `type`=%s, " \
-                    u"`rat`=%s, `translated`=%s, `processed`=%s, `bot_modified_at`=now() " \
+                    u"`rat`=%s, `translated`=%s, `processed`=%s" \
                     u" WHERE `requirement_id`=%s;"
                 cursor.execute(q, (project_id, title, description, type, rat, translated, processed, requirement_id))
                 db.commit()
