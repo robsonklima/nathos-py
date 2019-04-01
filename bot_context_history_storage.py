@@ -5,7 +5,6 @@ from db_project import DbProject
 from db_requirement import DbRequirement
 from db_task import DbTask
 from db_category import DbCategory
-from db_risk import DbRisk
 
 
 def execute():
@@ -55,15 +54,6 @@ def execute():
                     'title': category['title'],
                     'confidence': category['confidence'],
                     'created_at': str(category['created_at']) if category['created_at'] != None else None
-                })
-
-            risksDb = DbRisk.get_by_project_id(project['project_id'])
-            risks = []
-
-            for i, risk in enumerate(risksDb):
-                risks.append({
-                    'description': risk['description'],
-                    'created_at': str(risk['created_at']) if risk['created_at'] != None else None
                 })
 
             projects.append({

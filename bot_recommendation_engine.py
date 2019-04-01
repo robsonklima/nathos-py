@@ -5,7 +5,6 @@ from apscheduler.scheduler import Scheduler
 import bot_projects_translate
 import bot_projects_sim
 import bot_context_history_sim
-import bot_search
 import bot_requirements_translate
 import bot_requirements_sim
 import bot_context_history_storage
