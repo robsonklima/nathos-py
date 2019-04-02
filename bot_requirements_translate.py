@@ -14,21 +14,19 @@ import gapi_translate
 
 from db_project import DbProject
 from db_requirement import DbRequirement
-from db_commit import DbCommit
 from db_recommendation import DbRecommendation
 
 def execute():
     try:
         requirements = DbRequirement.get_untranslated()
 
-        for requirement in requirements:
-            translated_title = gapi_translate.translate(requirement['title'])
-            translated_description = gapi_translate.translate(requirement['description'])
+        for req in requirements:
+            trans_title = gapi_translate.translate(req['title'])
+            trans_desc = gapi_translate.translate(req['description'])
 
-            if translated_title is not None and translated_description is not None:
-                DbRequirement.update(requirement['project_id'], translated_title, translated_description,
-                                     requirement['type'], requirement['rat'], 1, requirement['processed'],
-                                     requirement['requirement_id'])
+            if trans_title is not None and trans_desc is not None:
+                DbRequirement.update(req['project_id'], trans_title, trans_desc, req['type'],
+                                     req['rat'], 1, req['processed'], req['requirement_id'])
 
         print(u'{} Requirements Translated'.format(len(requirements)))
     except Exception as ex:

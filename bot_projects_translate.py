@@ -8,12 +8,12 @@ def execute():
     try:
         projects = DbProject.get_untranslated()
 
-        for project in projects:
-            translated_name = gapi_translate.translate(project['name'])
-            translated_description = gapi_translate.translate(project['description'])
+        for proj in projects:
+            trans_name = gapi_translate.translate(proj['name'])
+            trans_desc = gapi_translate.translate(proj['description'])
 
-            if translated_name is not None and translated_description is not None:
-                DbProject.update(translated_name, translated_description, 1, project['classified'], project['project_id'])
+            if trans_name is not None and trans_desc is not None:
+                DbProject.update(trans_name, trans_desc, 1, proj['classified'], proj['project_id'])
 
         print(u'{} Projects Translated'.format(len(projects)))
     except Exception as ex:

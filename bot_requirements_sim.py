@@ -14,7 +14,6 @@ import gapi_translate
 
 from db_project import DbProject
 from db_requirement import DbRequirement
-from db_commit import DbCommit
 from db_recommendation import DbRecommendation
 
 def execute():
@@ -45,13 +44,13 @@ def execute():
             if not os.path.exists(dir + file):
                 raise ValueError(u"SKIP: You need to download the google news model")
 
-            for requirement in all_requirements:
-                sentence = requirement['description'].lower().split()
+            for req in all_requirements:
+                sentence = req['description'].lower().split()
                 sentence = [w for w in sentence if w not in stop_words]
                 distance = model.wmdistance(sentence_to_compare, sentence)
 
                 if distance > 0 and distance < 1:
-                    DbRecommendation.insert(distance, u_req['requirement_id'], requirement['requirement_id'], "NEW_REQUIREMENT")
+                    DbRecommendation.insert(distance, u_req['requirement_id'], req['requirement_id'], "NEW_REQUIREMENT")
 
             DbRequirement.update(u_req['project_id'], u_req['title'], u_req['description'], u_req['type'],
                                  u_req['rat'], u_req['translated'], 1, u_req['requirement_id'])

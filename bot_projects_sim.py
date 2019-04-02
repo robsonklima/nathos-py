@@ -8,9 +8,9 @@ def execute():
     try:
         projects = DbProject.get_unclassified()
 
-        for project in projects:
-            DbCategory.delete_by_project_id(project['project_id'])
-            categories = gapi_classify.classify_text(project['description'])
+        for proj in projects:
+            DbCategory.delete_by_project_id(proj['project_id'])
+            categories = gapi_classify.classify_text(proj['description'])
 
             if categories:
                 for category in categories:
@@ -18,9 +18,9 @@ def execute():
 
                     for cat in category_split:
                         if cat:
-                            DbCategory.insert(project['project_id'], cat.strip(), category['confidence'])
+                            DbCategory.insert(proj['project_id'], cat.strip(), category['confidence'])
 
-            DbProject.update(project['name'], project['description'], project['translated'], 1, project['project_id'])
+            DbProject.update(proj['name'], proj['description'], proj['translated'], 1, proj['project_id'])
 
         print(u'{} Projects Classified'.format(len(projects)))
     except Exception as ex:
