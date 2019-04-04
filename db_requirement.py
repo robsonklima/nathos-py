@@ -13,7 +13,7 @@ class DbRequirement:
         try:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor() as cursor:
-                q = u"INSERT INTO `requirements` (`project_id`, `title`," \
+                q = u"INSERT INTO `tb_requirements` (`project_id`, `title`," \
                     u" `description`, `type`, `rat`, `translated`)" \
                     u" VALUES (%s, %s, %s, %s, %s, %s);"
                 cursor.execute(q, (project_id, title, description, type, rat, translated))
@@ -29,7 +29,7 @@ class DbRequirement:
         try:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                sql = u"SELECT * FROM `requirements` " \
+                sql = u"SELECT * FROM `tb_requirements` " \
                       u"ORDER BY `requirement_id` ASC;"
                 cursor.execute(sql)
 
@@ -45,7 +45,7 @@ class DbRequirement:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
                 sql = u"SELECT   * " \
-                      u"FROM     `requirements` " \
+                      u"FROM     `tb_requirements` " \
                       u"WHERE    `project_id` = %s " \
                       u"ORDER BY `requirement_id` ASC;"
 
@@ -61,7 +61,7 @@ class DbRequirement:
         try:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                sql = u"SELECT * FROM `requirements_get_unprocessed`;"
+                sql = u"SELECT * FROM `vw_requirements_unprocessed`;"
                 cursor.execute(sql)
 
             return cursor.fetchall()
@@ -75,7 +75,7 @@ class DbRequirement:
         try:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                sql = u"SELECT * FROM requirements_get_untranslated;"
+                sql = u"SELECT * FROM vw_requirements_untranslated;"
                 cursor.execute(sql)
 
             return cursor.fetchall()
@@ -89,7 +89,7 @@ class DbRequirement:
         try:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor() as cursor:
-                q = u"UPDATE `requirements` SET " \
+                q = u"UPDATE `tb_requirements` SET " \
                     u"`project_id`=%s, `title`=%s, `description`=%s, `type`=%s, " \
                     u"`rat`=%s, `translated`=%s, `processed`=%s" \
                     u" WHERE `requirement_id`=%s;"
@@ -103,7 +103,7 @@ class DbRequirement:
         try:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor() as cursor:
-                q = u"DELETE FROM `requirements` WHERE requirement_id = %s;"
+                q = u"DELETE FROM `tb_requirements` WHERE requirement_id = %s;"
                 cursor.execute(q, (requirement_id))
 
             db.commit()

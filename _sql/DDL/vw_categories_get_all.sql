@@ -1,1 +1,0 @@
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `categories_get_all` AS select `c`.`title` AS `title`,count(`p`.`project_id`) AS `projects_count` from (`categories` `c` join `projects` `p` on((`p`.`project_id` = `c`.`project_id`))) group by `c`.`title` order by count(`p`.`project_id`) desc;

@@ -1,1 +1,0 @@
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `projects_get_untranslated` AS select `p`.`project_id` AS `project_id`,`p`.`name` AS `name`,`p`.`description` AS `description`,`p`.`size` AS `size`,`p`.`translated` AS `translated`,`p`.`classified` AS `classified` from `projects` `p` where (isnull(`p`.`translated`) or (`p`.`translated` = 0)) limit 20;

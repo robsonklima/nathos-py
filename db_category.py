@@ -11,7 +11,7 @@ class DbCategory:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"INSERT INTO `categories` (`project_id`, `title`, `confidence`) " \
+                q = u"INSERT INTO `tb_categories` (`project_id`, `title`, `confidence`) " \
                     u"VALUES (%s, %s, %s)"
                 cursor.execute(q, (project_id, title, confidence))
 
@@ -26,7 +26,7 @@ class DbCategory:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                q = u"SELECT * FROM `categories` ORDER BY title ASC;"
+                q = u"SELECT * FROM `tb_categories` ORDER BY title ASC;"
 
                 cursor.execute(q)
             return cursor.fetchall()
@@ -40,7 +40,7 @@ class DbCategory:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                q = u"SELECT * FROM `categories` WHERE `project_id` = %s;"
+                q = u"SELECT * FROM `tb_categories` WHERE `project_id` = %s;"
 
                 cursor.execute(q, project_id)
             return cursor.fetchall()
@@ -54,7 +54,7 @@ class DbCategory:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"DELETE FROM `categories` WHERE `category_id` = %s;"
+                q = u"DELETE FROM `tb_categories` WHERE `category_id` = %s;"
                 cursor.execute(q, (category_id))
 
             db.commit()
@@ -68,7 +68,7 @@ class DbCategory:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"DELETE FROM `categories` WHERE `project_id` = %s;"
+                q = u"DELETE FROM `tb_categories` WHERE `project_id` = %s;"
                 cursor.execute(q, (project_id))
 
             db.commit()
@@ -82,7 +82,7 @@ class DbCategory:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"DELETE FROM `categories`;"
+                q = u"DELETE FROM `tb_categories`;"
                 cursor.execute(q)
 
             db.commit()

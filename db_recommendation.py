@@ -11,7 +11,7 @@ class DbRecommendation:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"INSERT INTO `recommendations` (`distance`, `requirement_a_id`, `requirement_b_id`, `type`)" \
+                q = u"INSERT INTO `tb_recommendations` (`distance`, `requirement_a_id`, `requirement_b_id`, `type`)" \
                     u" VALUES (%s, %s, %s, %s);"
 
                 cursor.execute(q, (distance, requirement_a_id, requirement_b_id, type))
@@ -26,7 +26,7 @@ class DbRecommendation:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                q = u"SELECT * FROM `recommendations` " \
+                q = u"SELECT * FROM `tb_recommendations` " \
                     u"ORDER BY `recommendation_id` DESC"
                 cursor.execute(q)
 
@@ -41,7 +41,7 @@ class DbRecommendation:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"DELETE FROM `recommendations` WHERE recommendation_id = %s;"
+                q = u"DELETE FROM `tb_recommendations` WHERE recommendation_id = %s;"
                 cursor.execute(q, (recommendation_id))
 
             db.commit()
@@ -55,7 +55,7 @@ class DbRecommendation:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"DELETE FROM `recommendations`;"
+                q = u"DELETE FROM `tb_recommendations`;"
                 cursor.execute(q)
 
             db.commit()
@@ -69,7 +69,7 @@ class DbRecommendation:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"DELETE FROM `recommendations` WHERE `type`=%s;"
+                q = u"DELETE FROM `tb_recommendations` WHERE `type`=%s;"
                 cursor.execute(q, (type))
 
             db.commit()
@@ -83,7 +83,7 @@ class DbRecommendation:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"DELETE FROM `recommendations` WHERE `requirement_a_id`=%s;"
+                q = u"DELETE FROM `tb_recommendations` WHERE `requirement_a_id`=%s;"
                 cursor.execute(q, (requirement_id))
 
             db.commit()

@@ -11,7 +11,7 @@ class DbProject:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"INSERT INTO `projects` (`name`, `description`) " \
+                q = u"INSERT INTO `tb_projects` (`name`, `description`) " \
                     u"VALUES (%s, %s)"
                 cursor.execute(q, (name, description))
 
@@ -26,7 +26,7 @@ class DbProject:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                q = u"SELECT * FROM `projects` " \
+                q = u"SELECT * FROM `tb_projects` " \
                       u"ORDER BY `project_id` ASC;"
                 cursor.execute(q)
 
@@ -42,8 +42,8 @@ class DbProject:
             db = pymysql.connect(**config["mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
                 q = u"SELECT 	 p.*" \
-                    u" FROM		 projects p" \
-                    u" INNER JOIN	 categories c ON p.project_id = c.project_id" \
+                    u" FROM		 tb_projects p" \
+                    u" INNER JOIN	 tb_categories c ON p.project_id = c.project_id" \
                     u" WHERE		 c.title = %s;"
 
                 cursor.execute(q, category)
@@ -58,7 +58,7 @@ class DbProject:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                q = u"SELECT * FROM projects_get_unclassified;"
+                q = u"SELECT * FROM vw_projects_unclassified;"
 
                 cursor.execute(q)
             return cursor.fetchall()
@@ -72,7 +72,7 @@ class DbProject:
         try:
             db = pymysql.connect(**config[u"mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                sql = u"SELECT * FROM projects_get_untranslated;"
+                sql = u"SELECT * FROM vw_projects_untranslated;"
                 cursor.execute(sql)
 
             return cursor.fetchall()
@@ -86,7 +86,7 @@ class DbProject:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u"DELETE FROM `projects` WHERE project_id = %s;"
+                q = u"DELETE FROM `tb_projects` WHERE project_id = %s;"
                 cursor.execute(q, (project_id))
 
             db.commit()
@@ -100,7 +100,7 @@ class DbProject:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor() as cursor:
-                q = u" UPDATE `projects` SET `name`=%s, `description`=%s, `translated`=%s, " \
+                q = u" UPDATE `tb_projects` SET `name`=%s, `description`=%s, `translated`=%s, " \
                     u"`classified`=%s" \
                     u" WHERE `project_id` = %s"
                 cursor.execute(q, (name, description, translated, classified, project_id))

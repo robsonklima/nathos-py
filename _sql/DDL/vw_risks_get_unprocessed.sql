@@ -1,1 +1,0 @@
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `risks_get_unprocessed` AS select distinct `risks`.`description` AS `description`,`risks`.`translated` AS `translated`,`risks`.`processed` AS `processed` from `risks` where ((`risks`.`translated` = 1) and ((`risks`.`processed` = 0) or isnull(`risks`.`processed`))) limit 1000;

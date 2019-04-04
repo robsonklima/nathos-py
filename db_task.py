@@ -11,7 +11,7 @@ class DbTask:
         try:
             db = pymysql.connect(**config["mysql"])
             with db.cursor(pymysql.cursors.DictCursor) as cursor:
-                q = u"SELECT * FROM `tasks` WHERE `requirement_id` = %s;"
+                q = u"SELECT * FROM `tb_tasks` WHERE `requirement_id` = %s;"
 
                 cursor.execute(q, requirement_id)
             return cursor.fetchall()
