@@ -24,4 +24,4 @@ def analyse_syntax(text, verbose=False):
         for token in tokens:
             print(u'{}: {}'.format(pos_tag[token.part_of_speech.tag], token.text.content))
 
-    return tokens
+    return (tokens)
